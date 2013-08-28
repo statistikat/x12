@@ -1,0 +1,5 @@
+---1.2.0
+x12work changed to not use sh or bat files (Suggestions by Peter Ellis)
+---1.1.0
+Renaming to X12 to x12 and the old x12 to x12work
+Various bug fixes concerning combination of parameters

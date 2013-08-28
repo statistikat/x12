@@ -1,0 +1,27 @@
+Package: x12
+Version: 1.1-0
+Date: 2013-07-25
+Title: x12 - wrapper function and structure for batch processing
+Author: Alexander Kowarik <alexander.kowarik@statistik.gv.at>, Angelika Meraner
+Maintainer: Alexander Kowarik <alexander.kowarik@statistik.gv.at>
+Depends:
+    R (>= 2.14.0),methods,stats,utils,grDevices,stringr
+Description: A wrapper function and GUI for the X12 binaries
+License: GPL (>= 2)
+URL: http://www.r-project.org
+LazyData: TRUE
+Collate:
+    'class.R'
+    'crossVal-methods.R'
+    'env_functions.R'
+    'parameter-methods.R'
+    'plot-methods.R'
+    'plotFunctions.R'
+    'readSpc.R'
+    'summary-methods.R'
+    'summary.output.x12.R'
+    'summary.x12.R'
+    'times.R'
+    'x12-methods.R'
+    'x12work.R'
+    'zzz.R'

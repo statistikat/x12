@@ -1,0 +1,11 @@
+#S3 part
+export("x12work","plot.x12work","summary.x12work","readSpc",
+"x12env","putd","rmd","existd","getd","x12path","x13path")
+S3method(plot, x12work)
+S3method(summary, x12work)
+
+##S4 part
+importFrom("graphics", plot)
+exportClasses(x12Single,x12Batch,x12Output,x12Parameter,x12BaseInfo,diagnostics,x12List,fbcast,crossValidation)
+## All methods for imported generics:
+exportMethods(x12,summary,setP,getP,prev,cleanHistory,dim,length,crossVal,plot,plotSpec,plotRsdAcf,plotSeasFac,saveP,loadP,times)
