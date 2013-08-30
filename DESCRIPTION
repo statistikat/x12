@@ -10,6 +10,7 @@ Description: A wrapper function and GUI for the X12 binaries
 License: GPL (>= 2)
 URL: http://www.r-project.org
 LazyData: TRUE
+SystemRequirements: X-12-ARIMA
 Collate:
     'class.R'
     'crossVal-methods.R'
