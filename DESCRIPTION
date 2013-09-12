@@ -11,6 +11,7 @@ License: GPL (>= 2)
 URL: http://www.r-project.org
 LazyData: TRUE
 SystemRequirements: X-12-ARIMA
+URL: https://github.com/alexkowa/x12
 Collate:
     'class.R'
     'crossVal-methods.R'
