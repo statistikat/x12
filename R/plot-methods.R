@@ -8,7 +8,7 @@ setMethod(f='plot',
         lwd_original=1,lwd_sa=1,lwd_trend=1,lty_sa=1,lty_trend=1,
         ytop=1,showAllout=FALSE,showAlloutLines=FALSE,showOut=NULL,annComp=TRUE,annCompTrend=TRUE,
         col_ao="red",col_ls="red",col_tc="red",col_annComp="grey",lwd_out=1,cex_out=1.5,
-        pch_ao=4,pch_ls=2,pch_tc=23,plot_legend=TRUE,
+        pch_ao=4,pch_ls=2,pch_tc=23,plot_legend=TRUE,legend_horiz=TRUE,legend_bty="o",
         ### implement plotFbcast
         forecast=FALSE,backcast=FALSE,showCI=TRUE,
         col_fc="#2020ff",col_bc="#2020ff",col_ci="#d1d1ff",col_cishade="#d1d1ff",
@@ -17,6 +17,8 @@ setMethod(f='plot',
         showLine=FALSE,col_line="grey",lty_line=3,ylim=NULL,span=NULL,...
     ) 
     {
+      if(showAllout)
+        legend_horiz <- FALSE
       if(is.null(span))
         xlim <- NULL
       else{
@@ -269,8 +271,9 @@ setMethod(f='plot',
                     plot(ts,xlim=xlim,ylim=ylim,type = "n", axes = FALSE, bty="n", ann = FALSE, xaxt="n", ...)
                   }
                 }
-                if(length(leg.txt)>1)
-                  legend("center",legend=leg.txt,col=leg.col,lty=leg.lty,bg="white",horiz=TRUE)	
+                if(length(leg.txt)>1){
+                  legend("center",legend=leg.txt,col=leg.col,lty=leg.lty,bg="white",horiz=legend_horiz,bty=legend_bty)
+                }
               }
               
               if(!is.null(showOut)){
@@ -321,40 +324,59 @@ setMethod(f='plot',
                 }
                 if(annComp && annCompTrend){
                   if(original && sa && trend)
-                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison",leg.txt[3]),col=c(leg.col[1],col.out,leg.col[2],col_annComp,leg.col[3]),bg="white",lty=c(leg.lty[1],3,leg.lty[2],3,leg.lty[3]),pch=c(NA,pch.out,NA,NA,NA),ncol=3)	
+                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison",leg.txt[3]),col=c(leg.col[1],col.out,leg.col[2],col_annComp,leg.col[3]),bg="white",
+                        lty=c(leg.lty[1],3,leg.lty[2],3,leg.lty[3]),pch=c(NA,pch.out,NA,NA,NA),ncol=3,horiz=legend_horiz,bty=legend_bty)	
                   else if((original &! sa &! trend) | (!original && sa &! trend) | (!original && trend &! sa))
-                    legend("center",legend=c(leg.txt[1],out.type,"","Annual comparison"),col=c(leg.col[1],col.out,NA,col_annComp),bg="white",lty=c(leg.lty[1],3,NA,3),pch=c(NA,pch.out,NA,NA),ncol=2)	
+                    legend("center",legend=c(leg.txt[1],out.type,"","Annual comparison"),col=c(leg.col[1],col.out,NA,col_annComp),
+                        bg="white",lty=c(leg.lty[1],3,NA,3),pch=c(NA,pch.out,NA,NA),ncol=2,horiz=legend_horiz,bty=legend_bty)	
                   else if((original && sa &! trend) | (original &! sa && trend) | (sa && trend &!original))
-                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison"),col=c(leg.col[1],col.out,leg.col[2],col_annComp),bg="white",lty=c(leg.lty[1],3,leg.lty[2],3),pch=c(NA,pch.out,NA,NA),ncol=2)	
+                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison"),
+                        col=c(leg.col[1],col.out,leg.col[2],col_annComp),bg="white",
+                        lty=c(leg.lty[1],3,leg.lty[2],3),pch=c(NA,pch.out,NA,NA),ncol=2,horiz=legend_horiz,bty=legend_bty)	
                   
                 }
                 
                 if(!annComp && annCompTrend){
                   if(original && sa && trend)
-                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison",leg.txt[3]),col=c(leg.col[1],col.out,leg.col[2],col_annComp,leg.col[3]),bg="white",lty=c(leg.lty[1],3,leg.lty[2],1,leg.lty[3]),pch=c(NA,pch.out,NA,NA,NA),ncol=3)	
+                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison",leg.txt[3]),col=c(leg.col[1],col.out,leg.col[2],col_annComp,leg.col[3]),
+                      bg="white",lty=c(leg.lty[1],3,leg.lty[2],1,leg.lty[3]),
+                      pch=c(NA,pch.out,NA,NA,NA),ncol=3,horiz=legend_horiz,bty=legend_bty)	
                   else if((original &! sa &! trend) | (!original && sa &! trend) | (!original && trend &! sa))
-                    legend("center",legend=c(leg.txt[1],out.type,"","Annual comparison"),col=c(leg.col[1],col.out,NA,col_annComp),bg="white",lty=c(leg.lty[1],3,NA,1),pch=c(NA,pch.out,NA,NA),ncol=2)	
+                    legend("center",legend=c(leg.txt[1],out.type,"","Annual comparison"),col=c(leg.col[1],col.out,NA,col_annComp),bg="white",
+                        lty=c(leg.lty[1],3,NA,1),pch=c(NA,pch.out,NA,NA),ncol=2,horiz=legend_horiz,bty=legend_bty)	
                   else if((original && sa &! trend) | (original &! sa && trend) | (sa && trend &!original))
-                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison"),col=c(leg.col[1],col.out,leg.col[2],col_annComp),bg="white",lty=c(leg.lty[1],3,leg.lty[2],1),pch=c(NA,pch.out,NA,NA),ncol=2)	
+                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison"),
+                        col=c(leg.col[1],col.out,leg.col[2],col_annComp),bg="white",
+                        lty=c(leg.lty[1],3,leg.lty[2],1),pch=c(NA,pch.out,NA,NA),ncol=2,horiz=legend_horiz,bty=legend_bty)	
                   
                 }
                 
                 if(annComp &! annCompTrend){
                   if(original && sa && trend)
-                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison",leg.txt[3]),col=c(leg.col[1],col.out,leg.col[2],col_annComp,leg.col[3]),bg="white",lty=c(leg.lty[1],3,leg.lty[2],3,leg.lty[3]),pch=c(NA,pch.out,NA,NA,NA),ncol=3)	
+                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison",leg.txt[3]),
+                        col=c(leg.col[1],col.out,leg.col[2],col_annComp,leg.col[3]),bg="white",
+                        lty=c(leg.lty[1],3,leg.lty[2],3,leg.lty[3]),pch=c(NA,pch.out,NA,NA,NA),ncol=3,
+                        horiz=legend_horiz,bty=legend_bty)	
                   else if((original &! sa &! trend) | (!original && sa &! trend) | (!original && trend &! sa))
-                    legend("center",legend=c(leg.txt[1],out.type,"","Annual comparison"),col=c(leg.col[1],col.out,NA,col_annComp),bg="white",lty=c(leg.lty[1],3,NA,3),pch=c(NA,pch.out,NA,NA),ncol=2)	
+                    legend("center",legend=c(leg.txt[1],out.type,"","Annual comparison"),
+                        col=c(leg.col[1],col.out,NA,col_annComp),bg="white",lty=c(leg.lty[1],3,NA,3),
+                        pch=c(NA,pch.out,NA,NA),ncol=2,horiz=legend_horiz,bty=legend_bty)	
                   else if((original && sa &! trend) | (original &! sa && trend) | (sa && trend &!original))
-                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison"),col=c(leg.col[1],col.out,leg.col[2],col_annComp),bg="white",lty=c(leg.lty[1],3,leg.lty[2],3),pch=c(NA,pch.out,NA,NA),ncol=2)	
+                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"Annual comparison"),
+                        col=c(leg.col[1],col.out,leg.col[2],col_annComp),bg="white",
+                        lty=c(leg.lty[1],3,leg.lty[2],3),pch=c(NA,pch.out,NA,NA),ncol=2,horiz=legend_horiz,bty=legend_bty)	
                 }
                 
                 if(!annComp &! annCompTrend){
                   if(original && sa && trend)
-                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"",leg.txt[3]),col=c(leg.col[1],col.out,leg.col[2],NA,leg.col[3]),bg="white",lty=c(leg.lty[1],3,leg.lty[2],NA,leg.lty[3]),pch=c(NA,pch.out,NA,NA,NA),ncol=3)	
+                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],"",leg.txt[3]),col=c(leg.col[1],col.out,leg.col[2],NA,leg.col[3]),bg="white",lty=c(leg.lty[1],3,leg.lty[2],NA,leg.lty[3]),
+                        pch=c(NA,pch.out,NA,NA,NA),ncol=3,horiz=legend_horiz,bty=legend_bty)	
                   else if((original &! sa &! trend) | (!original && sa &! trend) | (!original && trend &! sa))
-                    legend("center",legend=c(leg.txt[1],out.type),col=c(leg.col[1],col.out),bg="white",lty=c(leg.lty[1],3),pch=c(NA,pch.out),horiz=TRUE)	
+                    legend("center",legend=c(leg.txt[1],out.type),col=c(leg.col[1],col.out),
+                        bg="white",lty=c(leg.lty[1],3),pch=c(NA,pch.out),horiz=legend_horiz,bty=legend_bty)	
                   else if((original && sa &! trend) | (original &! sa && trend) | (sa && trend &!original))
-                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],""),col=c(leg.col[1],col.out,leg.col[2],NA),bg="white",lty=c(leg.lty[1],3,leg.lty[2],NA),pch=c(NA,pch.out,NA,NA),ncol=2)	
+                    legend("center",legend=c(leg.txt[1],out.type,leg.txt[2],""),col=c(leg.col[1],col.out,leg.col[2],NA),
+                        bg="white",lty=c(leg.lty[1],3,leg.lty[2],NA),pch=c(NA,pch.out,NA,NA),ncol=2,horiz=legend_horiz,bty=legend_bty)	
                   
                 }
               }
@@ -376,7 +398,7 @@ setMethod(f='plot',
 #	if(original && sa && trend)
 #		legend("center",legend=c(leg.txt[1],"AO",leg.txt[2],"LS",leg.txt[3],"TC"),col=c(leg.col[1],col_ao,leg.col[2],col_ls,leg.col[3],col_tc),bg="white",lty=c(1,NA,1,NA,1,NA),pch=c(NA,pch_ao,NA,pch_ls,NA,pch_tc),pt.cex=c(NA,2,NA,2,NA,2),ncol=3)	
 #	else if((original &! sa &! trend) | (!original && sa &! trend) | (!original && trend &! sa))
-#		legend("center",legend=c("AO","LS","TC"),col=c(col_ao,col_ls,col_tc),bg="white",pch=c(pch_ao,pch_ls,pch_tc),pt.cex=2,horiz=TRUE)	
+#		legend("center",legend=c("AO","LS","TC"),col=c(col_ao,col_ls,col_tc),bg="white",pch=c(pch_ao,pch_ls,pch_tc),pt.cex=2,horiz=legend_horiz)	
 #	else if((original && sa &! trend) | (original &! sa && trend) | (sa && trend &!original))
 #		legend("center",legend=c(leg.txt[1],"AO",leg.txt[2],"LS","","TC"),col=c(leg.col[1],col_ao,leg.col[2],col_ls,NA,col_tc),bg="white",lty=c(1,NA,1,NA,NA,NA),pch=c(NA,pch_ao,NA,pch_ls,NA,pch_tc),pt.cex=c(NA,2,NA,2,NA,2),ncol=3)	
                 
@@ -397,11 +419,19 @@ setMethod(f='plot',
                   }
                 }
                 if(original && sa && trend)
-                  legend("center",legend=c(leg.txt[1],out.type[1],leg.txt[2],out.type[2],leg.txt[3],out.type[3]),col=c(leg.col[1],out.type.col[1],leg.col[2],out.type.col[2],leg.col[3],out.type.col[3]),bg="white",lty=c(leg.lty[1],NA,leg.lty[2],NA,leg.lty[3],NA),pch=c(NA,out.type.pch[1],NA,out.type.pch[2],NA,out.type.pch[3]),pt.cex=c(NA,2,NA,2,NA,2),ncol=3)	
+                  legend("center",legend=c(leg.txt[1],out.type[1],leg.txt[2],out.type[2],leg.txt[3],out.type[3]),
+                      col=c(leg.col[1],out.type.col[1],leg.col[2],out.type.col[2],leg.col[3],out.type.col[3]),
+                      bg="white",lty=c(leg.lty[1],NA,leg.lty[2],NA,leg.lty[3],NA),pch=c(NA,out.type.pch[1],NA,out.type.pch[2],NA,out.type.pch[3]),pt.cex=c(NA,2,NA,2,NA,2),
+                      ncol=3,horiz=legend_horiz,bty=legend_bty)	
                 else if((original &! sa &! trend) | (!original && sa &! trend) | (!original && trend &! sa))
-                  legend("center",legend=c(out.type[1],out.type[2],out.type[3]),col=c(out.type.col[1],out.type.col[2],out.type.col[3]),bg="white",pch=c(out.type.pch[1],out.type.pch[2],out.type.pch[3]),pt.cex=2,horiz=TRUE)	
+                  legend("center",legend=c(out.type[1],out.type[2],out.type[3]),
+                      col=c(out.type.col[1],out.type.col[2],out.type.col[3]),bg="white",
+                      pch=c(out.type.pch[1],out.type.pch[2],out.type.pch[3]),
+                      pt.cex=2,horiz=legend_horiz,bty=legend_bty)	
                 else if((original && sa &! trend) | (original &! sa && trend) | (sa && trend &!original))
-                  legend("center",legend=c(leg.txt[1],out.type[1],leg.txt[2],out.type[2],"",out.type[3]),col=c(leg.col[1],out.type.col[1],leg.col[2],out.type.col[2],NA,out.type.col[3]),bg="white",lty=c(leg.lty[1],NA,leg.lty[2],NA,NA,NA),pch=c(NA,out.type.pch[1],NA,out.type.pch[2],NA,out.type.pch[3]),pt.cex=c(NA,2,NA,2,NA,2),ncol=3)	
+                  legend("center",legend=c(leg.txt[1],out.type[1],leg.txt[2],out.type[2],"",out.type[3]),
+                      col=c(leg.col[1],out.type.col[1],leg.col[2],out.type.col[2],NA,out.type.col[3]),bg="white",lty=c(leg.lty[1],NA,leg.lty[2],NA,NA,NA),pch=c(NA,out.type.pch[1],NA,out.type.pch[2],NA,out.type.pch[3]),pt.cex=c(NA,2,NA,2,NA,2),
+                      ncol=3,horiz=legend_horiz,bty=legend_bty)	
               }
 #end if plot legend						
             }else{
@@ -539,7 +569,7 @@ setMethod(f='plot',
         lwd_original=1,lwd_sa=1,lwd_trend=1,lty_sa=1,lty_trend=1,
         ytop=1,showAllout=FALSE,showAlloutLines=FALSE,showOut=NULL,annComp=TRUE,annCompTrend=TRUE,
         col_ao="red",col_ls="red",col_tc="red",col_annComp="grey",lwd_out=1,cex_out=1.5,
-        pch_ao=4,pch_ls=2,pch_tc=23,plot_legend=TRUE,
+        pch_ao=4,pch_ls=2,pch_tc=23,plot_legend=TRUE,legend_horiz=TRUE,legend_bty="o",
         ### implement plotFbcast
         forecast=FALSE,backcast=FALSE,showCI=TRUE,
         col_fc="#2020ff",col_bc="#2020ff",col_ci="#d1d1ff",col_cishade="#d1d1ff",
@@ -555,6 +585,7 @@ setMethod(f='plot',
           ytop=ytop,showAllout=showAllout,showAlloutLines=showAlloutLines,showOut=showOut,annComp=annComp,annCompTrend=annCompTrend,
           col_ao=col_ao,col_ls=col_ls,col_tc=col_tc,col_annComp=col_annComp,lwd_out=lwd_out,cex_out=cex_out,
           pch_ao=pch_ao,pch_ls=pch_ls,pch_tc=pch_tc,plot_legend=plot_legend,
+          legend_horiz=legend_horiz,legend_bty=legend_bty,
           ### implement plotFbcast
           forecast=forecast,backcast=backcast,showCI=showCI,
           col_fc=col_fc,col_bc=col_bc,col_ci=col_ci,col_cishade=col_cishade,
@@ -629,7 +660,9 @@ setMethod(
     f='plotSeasFac',
     signature=signature(x = "x12Output"),definition=function(x,SI_Ratios=TRUE,ylab="Value",xlab="",
         lwd_seasonal=1,col_seasonal="black",lwd_mean=1,col_mean="blue",col_siratio="darkgreen",
-        col_replaced="red",cex_siratio=.9,cex_replaced=.9,SI_Ratios_replaced=TRUE,plot_legend=TRUE,...)
+        col_replaced="red",cex_siratio=.9,cex_replaced=.9,SI_Ratios_replaced=TRUE,plot_legend=TRUE,
+        legend_horiz=FALSE,legend_bty="o",
+        ...)
     {
       
       if(!SI_Ratios)
@@ -709,11 +742,15 @@ setMethod(
                 plot(1,xlim=xlim,type = "n", axes = FALSE, bty="n", ann = FALSE, ...)
               if(SI_Ratios){
                 if(SI_Ratios_replaced)
-                  legend("center",legend=c("Seasonal Factors","Mean","SI Ratio","Replaced SI Ratio"),col=c(col_seasonal,col_mean,col_siratio,col_replaced),pch=c(NA,NA,20,20),lty=c(1,1,NA,NA),bg="white",ncol=2,pt.cex=1.4)
+                  legend("center",legend=c("Seasonal Factors","Mean","SI Ratio","Replaced SI Ratio"),col=c(col_seasonal,col_mean,col_siratio,col_replaced),pch=c(NA,NA,20,20),
+                      lty=c(1,1,NA,NA),bg="white",ncol=2,pt.cex=1.4,horiz=legend_horiz,bty=legend_bty)
                 else
-                  legend("center",legend=c("Seasonal Factors","Mean","SI Ratio"),col=c(col_seasonal,col_mean,col_siratio),pch=c(NA,NA,20),lty=c(1,1,NA),bg="white",ncol=2,pt.cex=1.4)      
+                  legend("center",legend=c("Seasonal Factors","Mean","SI Ratio"),
+                      col=c(col_seasonal,col_mean,col_siratio),pch=c(NA,NA,20),
+                      lty=c(1,1,NA),bg="white",ncol=2,pt.cex=1.4,horiz=legend_horiz,bty=legend_bty)      
               }else
-                legend("center",legend=c("Seasonal Factors","Mean"),col=c(col_seasonal,col_mean),lty=c(1,1),bg="white",horiz=TRUE)
+                legend("center",legend=c("Seasonal Factors","Mean"),col=c(col_seasonal,col_mean),
+                    lty=c(1,1),bg="white",horiz=legend_horiz,bty=legend_bty)
             }
 			gp.new<-par()	
 			invisible(gp.new)
@@ -725,11 +762,11 @@ setMethod(f='plotSeasFac',
     signature=signature(x = "x12Single"),
     definition=function(x,SI_Ratios=TRUE,ylab="Value",xlab="",
         lwd_seasonal=1,col_seasonal="black",lwd_mean=1,col_mean="blue",col_siratio="darkgreen",
-        col_replaced="red",cex_siratio=.9,cex_replaced=.9,SI_Ratios_replaced=TRUE,plot_legend=TRUE,...){
+        col_replaced="red",cex_siratio=.9,cex_replaced=.9,SI_Ratios_replaced=TRUE,plot_legend=TRUE,legend_horiz=FALSE,legend_bty="o",...){
       plotSeasFac(x@x12Output,SI_Ratios=SI_Ratios,ylab=ylab,xlab=xlab,
           lwd_seasonal=lwd_seasonal,col_seasonal=col_seasonal,lwd_mean=lwd_mean,col_mean=col_mean,
           col_siratio=col_siratio,col_replaced=col_replaced,cex_siratio=cex_siratio,cex_replaced=cex_replaced,
-          SI_Ratios_replaced=SI_Ratios_replaced,plot_legend=plot_legend,...)      
+          SI_Ratios_replaced=SI_Ratios_replaced,plot_legend=plot_legend,legend_horiz=legend_horiz,legend_bty=legend_bty,...)      
     }
 )
 
@@ -743,7 +780,9 @@ setMethod(
         xlab="Frequency",ylab="Decibels",
         main="Spectrum",highlight=TRUE,
         col_bar="darkgrey",col_seasonal="red",col_td="blue",
-        lwd_bar=4,lwd_seasonal=1,lwd_td=1,plot_legend=TRUE,...)
+        lwd_bar=4,lwd_seasonal=1,lwd_td=1,plot_legend=TRUE,
+        legend_horiz=TRUE,legend_bty="o",        
+        ...)
     {
       if(main=="Spectrum"){
         if(which=="sa")
@@ -773,7 +812,9 @@ setMethod(
       plot_spectrum_work(x@frequency,x@spectrum,xlab=xlab,ylab=ylab,f=f,
           main=main,highlight=highlight,
           col_bar=col_bar,col_seasonal=col_seasonal,col_td=col_td,
-          lwd_bar=lwd_bar,lwd_seasonal=lwd_seasonal,lwd_td=lwd_td,plot_legend=plot_legend,...)
+          lwd_bar=lwd_bar,lwd_seasonal=lwd_seasonal,lwd_td=lwd_td,plot_legend=plot_legend,
+          legend_horiz=legend_horiz,legend_bty=legend_bty,
+          ...)
       
     })
 
@@ -783,12 +824,16 @@ setMethod(f='plotSpec',
         xlab="Frequency",ylab="Decibels",
         main="Spectrum",highlight=TRUE,
         col_bar="darkgrey",col_seasonal="red",col_td="blue",
-        lwd_bar=4,lwd_seasonal=1,lwd_td=1,plot_legend=TRUE,...){
+        lwd_bar=4,lwd_seasonal=1,lwd_td=1,plot_legend=TRUE,
+        legend_horiz=TRUE,legend_bty="o",  
+        ...){
       plotSpec(x@x12Output,which=which,
           xlab=xlab,ylab=ylab,
           main=main,highlight=highlight,
           col_bar=col_bar,col_seasonal=col_seasonal,col_td=col_td,
-          lwd_bar=lwd_bar,lwd_seasonal=lwd_seasonal,lwd_td=lwd_td,plot_legend=plot_legend,...)      
+          lwd_bar=lwd_bar,lwd_seasonal=lwd_seasonal,lwd_td=lwd_td,plot_legend=plot_legend,
+          legend_horiz=legend_horiz,legend_bty=legend_bty,
+          ...)      
     }
 )
 
@@ -798,7 +843,9 @@ setMethod(
         xlab="Frequency",ylab="Decibels",
         main="Spectrum",highlight=TRUE,
         col_bar="darkgrey",col_seasonal="red",col_td="blue",
-        lwd_bar=4,lwd_seasonal=1,lwd_td=1,plot_legend=TRUE,...)
+        lwd_bar=4,lwd_seasonal=1,lwd_td=1,plot_legend=TRUE,
+        legend_horiz=TRUE,legend_bty="o",
+        ...)
     {
 #			myfun <- function(x) deparse(substitute(x)) 
 #		which=NULL
@@ -818,7 +865,9 @@ setMethod(
       plot_spectrum_work(x@frequency,x@spectrum,xlab=xlab,ylab=ylab,f=f,
           main=main,highlight=highlight,
           col_bar=col_bar,col_seasonal=col_seasonal,col_td=col_td,
-          lwd_bar=lwd_bar,lwd_seasonal=lwd_seasonal,lwd_td=lwd_td,plot_legend=plot_legend,...)
+          lwd_bar=lwd_bar,lwd_seasonal=lwd_seasonal,lwd_td=lwd_td,plot_legend=plot_legend,
+          legend_horiz=legend_horiz,legend_bty=legend_bty,
+          ...)
       
     })
 

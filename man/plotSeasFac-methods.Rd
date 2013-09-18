@@ -24,11 +24,13 @@ Seasonal factor plots with function \code{plotSeasFac} in package \pkg{x12}.
 \S4method{plotSeasFac}{x12Output}(x,SI_Ratios=TRUE, ylab="Value", xlab="",
   lwd_seasonal=1, col_seasonal="black", lwd_mean=1, col_mean="blue",
   col_siratio="darkgreen",col_replaced="red", cex_siratio=.9, cex_replaced=.9,
-  SI_Ratios_replaced=TRUE, plot_legend=TRUE, ...)
+  SI_Ratios_replaced=TRUE, plot_legend=TRUE,legend_horiz=FALSE,legend_bty="o",
+   ...)
 \S4method{plotSeasFac}{x12Single}(x,SI_Ratios=TRUE, ylab="Value", xlab="",lwd_seasonal=1,
   col_seasonal="black", lwd_mean=1, col_mean="blue", col_siratio="darkgreen",
   col_replaced="red", cex_siratio=.9, cex_replaced=.9, SI_Ratios_replaced=TRUE,
-  plot_legend=TRUE, ...)
+  plot_legend=TRUE,legend_horiz=FALSE,legend_bty="o",
+  ...)
 
 				
 }
@@ -48,7 +50,9 @@ Seasonal factor plots with function \code{plotSeasFac} in package \pkg{x12}.
 \item{cex_siratio}{magnification factor for the size of the symbols used for plotting the SI ratios.} 
 \item{cex_replaced}{magnification factor for the size of the symbols used for plotting the replaced SI ratios.} 
 \item{SI_Ratios_replaced}{logical specifying if the replaced SI ratios should be plotted.} 
-\item{plot_legend}{logical specifying if a legend should be plotted.} 
+\item{plot_legend}{logical specifying if a legend should be plotted.}
+\item{legend_horiz}{Orientation of the legend}
+\item{legend_bty}{the type of box to be drawn around the legend. The allowed values are "o" (the default) and "n".} 
 \item{...}{ignored.}
 }
 

@@ -36,7 +36,8 @@ Plot function for \code{\link{x12}} output in package \pkg{x12}.
   col_trend="green", lwd_original=1, lwd_sa=1, lwd_trend=1, lty_sa=1, lty_trend=1, ytop=1,
   showAllout=FALSE, showAlloutLines=FALSE, showOut=NULL, annComp=TRUE, annCompTrend=TRUE,
   col_ao="red", col_ls="red", col_tc="red", col_annComp="grey", lwd_out=1, cex_out=1.5,
-  pch_ao=4, pch_ls=2, pch_tc=23, plot_legend=TRUE, forecast=FALSE, backcast=FALSE,
+  pch_ao=4, pch_ls=2, pch_tc=23, plot_legend=TRUE, legend_horiz=TRUE, legend_bty="o",
+  forecast=FALSE, backcast=FALSE,
   showCI=TRUE, col_fc="#2020ff", col_bc="#2020ff", col_ci="#d1d1ff",
   col_cishade="#d1d1ff", lty_original=1, lty_fc=2, lty_bc=2, lty_ci=1, lwd_fc=1, lwd_bc=1,
   lwd_ci=1, points_bc=FALSE, points_fc=FALSE, points_original=FALSE, showLine=FALSE,
@@ -46,7 +47,7 @@ Plot function for \code{\link{x12}} output in package \pkg{x12}.
   col_trend="green", lwd_original=1, lwd_sa=1, lwd_trend=1, lty_sa=1, lty_trend=1, ytop=1,
   showAllout=FALSE, showAlloutLines=FALSE, showOut=NULL, annComp=TRUE, annCompTrend=TRUE,
   col_ao="red", col_ls="red", col_tc="red", col_annComp="grey", lwd_out=1, cex_out=1.5,
-  pch_ao=4, pch_ls=2, pch_tc=23, plot_legend=TRUE,
+  pch_ao=4, pch_ls=2, pch_tc=23, plot_legend=TRUE, legend_horiz=TRUE, legend_bty="o",
   forecast=FALSE, backcast=FALSE, showCI=TRUE,
   col_fc="#2020ff", col_bc="#2020ff", col_ci="#d1d1ff", col_cishade="#d1d1ff",
   lty_original=1, lty_fc=2, lty_bc=2, lty_ci=1, lwd_fc=1, lwd_bc=1, lwd_ci=1,
@@ -93,6 +94,8 @@ Plot function for \code{\link{x12}} output in package \pkg{x12}.
 \item{pch_ls}{symbols used for level shifts.}
 \item{pch_tc}{symbols used for transitory changes.}
 \item{plot_legend}{logical specifying if a legend should be plotted.}
+\item{legend_horiz}{Orientation of the legend}
+\item{legend_bty}{the type of box to be drawn around the legend. The allowed values are "o" (the default) and "n".}
 \item{col_fc}{color of forecasts.}
 \item{col_bc}{color of backcasts.}
 \item{col_ci}{color of prediction interval.}
