@@ -1,3 +1,4 @@
+import(stringr,methods)
 #S3 part
 export("x12work","plot.x12work","summary.x12work","readSpc",
 "x12env","putd","rmd","existd","getd","x12path","x13path")
