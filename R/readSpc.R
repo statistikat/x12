@@ -127,14 +127,14 @@ readSpcS <- function(file,filename=TRUE){
   if(length(mspanX)>0){
     modelspan <- gsub2(series[mspanX],"modelspan")
     modelspan <- unlist(lapply(unlist(strsplit(modelspan,",")),function(x)strsplit(x,"\\.")))
-    para <- setP(para,list(modelspan=as.numeric(modelspan)))
+    para <- setP(para,list(series.modelspan=as.numeric(modelspan)))
   }
   spanX <-  whichgrep(series,"span")
   spanX <- spanX[!spanX%in%mspanX]
   if(length(spanX)>0){
     span <- gsub2(series[spanX],"span")
     span <- unlist(lapply(unlist(strsplit(span,",")),function(x)strsplit(x,"\\.")))
-    para <- setP(para,list(span=as.numeric(span)))
+    para <- setP(para,list(series.span=as.numeric(span)))
   }
 ###TRANSFORM
   ind <- getPart(Lines,"transform")
@@ -143,7 +143,7 @@ readSpcS <- function(file,filename=TRUE){
     Lines <- Lines[-c(ind[1]:ind[2])]   
     func <- whichgrep(trans,"function")
     trans <- gsub2(trans[func],"function")
-    para <- setP(para,list(transform=trans))
+    para <- setP(para,list(transform.function=trans))
   }
 ###OUTLIER
   ind <- getPart(Lines,"outlier")
@@ -159,18 +159,18 @@ readSpcS <- function(file,filename=TRUE){
       types <- gsub("\\)","",types)
       types <- unlist(strsplit(types," "))
       types <- types[types!=""]
-      para <- setP(para,list(outlier=types))
+      para <- setP(para,list(outlier.types=types))
     }
     spanX <-  whichgrep(outlier,"span")
     if(length(spanX)>0){
       out_span <- gsub2(outlier[spanX],"span")
       out_span <- unlist(lapply(unlist(strsplit(out_span,",")),function(x)strsplit(x,"\\.")))
-      para <- setP(para,list(outlier_span=as.numeric(out_span)))
+      para <- setP(para,list(outlier.span=as.numeric(out_span)))
     }
     methodX <-  whichgrep(outlier,"method")
     if(length(methodX)>0){
       out_meth <- gsub2(outlier[methodX],"method")
-      para <- setP(para,list(outlier_method=out_meth))
+      para <- setP(para,list(outlier.method=out_meth))
     }
     critX <-  whichgrep(outlier,"critical")
     if(length(critX)>0){
@@ -181,7 +181,7 @@ readSpcS <- function(file,filename=TRUE){
         crit <- as.list(as.numeric(crit))
         names(crit) <- c("AO","LS","TC")[1:length(crit)]
       }
-      para <- setP(para,list(critical=crit))
+      para <- setP(para,list(outlier.critical=crit))
     }
   } 
 #REGRESSION
@@ -192,29 +192,29 @@ readSpcS <- function(file,filename=TRUE){
     varX <-  whichgrep(regression,"variables")
     if(length(varX)>0){
       variables <- gsub1(regression[varX],"variables")
-      para <- setP(para,list(regvariables=variables))
+      para <- setP(para,list(regression.variables=variables))
     }
     centeruserX <-  whichgrep(regression,"centeruser")
     if(length(centeruserX)>0){
       centeruser <- gsub1(regression[centeruserX],"centeruser")
-      para <- setP(para,list(centeruser=centeruser))
+      para <- setP(para,list(regression.centeruser=centeruser))
       regression <- regression[-centeruserX]
     }
     usertypeX <-  whichgrep(regression,"usertype")
     if(length(usertypeX)>0){
       usertype <- gsub1(regression[centeruserX],"usertype")
-      para <- setP(para,list(usertype=usertype))
+      para <- setP(para,list(regression.usertype=usertype))
       regression <- regression[-usertypeX]
     }
     userX <-  whichgrep(regression,"user")
     if(length(userX)>0){
       reguser <- gsub1(regression[userX],"user")
-      para <- setP(para,list(reguser=reguser))
+      para <- setP(para,list(regression.user=reguser))
     }
     fileX <-  whichgrep(regression,"file")
     if(length(fileX)>0){
       regfile <- gsub1(regression[fileX],"file")
-      para <- setP(para,list(regfile=regfile))
+      para <- setP(para,list(regression.file=regfile))
     }
   }
 #ARIMA
@@ -230,9 +230,9 @@ readSpcS <- function(file,filename=TRUE){
       arr <- gsub(","," ",arr)
       model <- as.numeric(gsub1(arr,"model"))
       if(length(model)==6)
-        para <- setP(para,list(arima=model[1:3],sarima=model[4:6]))
+        para <- setP(para,list(arima.model=model[1:3],arima.smodel=model[4:6]))
       else if(length(model)==3)
-        para <- setP(para,list(arima=model[1:3],sarima=c(0,0,0)))
+        para <- setP(para,list(arima.model=model[1:3],arima.smodel=c(0,0,0)))
       else
         stop("Problem in reading ARIMA specification")
     }
@@ -256,12 +256,12 @@ readSpcS <- function(file,filename=TRUE){
     acceptX <-  whichgrep(automdl,"acceptdefault")
     if(length(acceptX)>0){
       accept <- yes(gsub1(automdl[acceptX],"acceptdefault"))
-      para <- setP(para,list(acceptdefault=accept))
+      para <- setP(para,list(automdl.acceptdefault=accept))
     }
     balancedX <-  whichgrep(automdl,"balanced")
     if(length(balancedX)>0){
       balanced <- yes(gsub1(automdl[balancedX],"balanced"))
-      para <- setP(para,list(balanced=balanced))
+      para <- setP(para,list(automdl.balanced=balanced))
     }
   }else{
     para <- setP(para,list(automdl=FALSE))
@@ -275,7 +275,7 @@ readSpcS <- function(file,filename=TRUE){
     oosX <-  whichgrep(estimate,"OUTOFSAMPLE")
     if(length(oosX)>0){
       oos <- yes(gsub1(estimate[oosX],"OUTOFSAMPLE"))
-      para <- setP(para,list(estOutofsample=oos))
+      para <- setP(para,list(estimate.outofsample=oos))
     }
   }
 #SLIDINGSSPAN
@@ -314,47 +314,47 @@ readSpcS <- function(file,filename=TRUE){
     sigmalimX <-  whichgrep(x11,"sigmalim")
     if(length(sigmalimX)>0){
       sigmalim <- as.numeric(unlist(strsplit(gsub2(x11[sigmalimX],"sigmalim"),",")))
-      para <- setP(para,list(sigmalim=sigmalim))
+      para <- setP(para,list(x11.sigmalim=sigmalim))
     }
     calsigX <-  whichgrep(x11,"calendarsigma")
     if(length(calsigX)>0){
       calendarsigma <- gsub1(x11[calsigX],"calendarsigma")
-      para <- setP(para,list(x11calendarsigma=calendarsigma))
+      para <- setP(para,list(x11.calendarsigma=calendarsigma))
     }
     modeX <-  whichgrep(x11,"mode")
     if(length(modeX)>0){
       samode <- gsub1(x11[modeX],"mode")
-      para <- setP(para,list(samode=samode))
+      para <- setP(para,list(x11.samode=samode))
     }
     seasonalmaX <-  whichgrep(x11,"seasonalma")
     if(length(seasonalmaX)>0){
       seasonalma <- gsub1(x11[seasonalmaX],"seasonalma")
-      para <- setP(para,list(seasonalma=seasonalma))
+      para <- setP(para,list(x11.seasonalma=seasonalma))
     }
     trendmaX <-  whichgrep(x11,"trendma")
     if(length(trendmaX)>0){
       trendma <- gsub1(x11[trendmaX],"trendma")
-      para <- setP(para,list(trendma=trendma))
+      para <- setP(para,list(x11.trendma=trendma))
     }
     appendfcstX <-  whichgrep(x11,"appendfcst")
     if(length(appendfcstX)>0){
       appendfcst <- yes(gsub1(x11[appendfcstX],"appendfcst"))
-      para <- setP(para,list(x11appendfcst=appendfcst))
+      para <- setP(para,list(x11.appendfcst=appendfcst))
     }
     appendbcstX <-  whichgrep(x11,"appendbcst")
     if(length(appendbcstX)>0){
       appendbcst <- yes(gsub1(x11[appendbcstX],"appendbcst"))
-      para <- setP(para,list(x11appendbcst=appendbcst))
+      para <- setP(para,list(x11.appendbcst=appendbcst))
     }
     excludefcstX <-  whichgrep(x11,"excludefcst")
     if(length(excludefcstX)>0){
       excludefcst <- yes(gsub1(x11[excludefcstX],"excludefcst"))
-      para <- setP(para,list(x11excludefcst=excludefcst))
+      para <- setP(para,list(x11.excludefcst=excludefcst))
     }
     finalX <-  whichgrep(x11,"final")
     if(length(finalX)>0){
       final <- gsub1(x11[finalX],"final")
-      para <- setP(para,list(x11final=final))
+      para <- setP(para,list(x11.final=final))
     }
   } 
   cat("File:",file,"processed\n")
