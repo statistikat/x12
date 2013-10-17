@@ -243,12 +243,12 @@ readSpcS <- function(file,filename=TRUE){
     para <- setP(para,list=(automdl=TRUE))
     automdl <- Lines[ind[1]:ind[2]]
     Lines <- Lines[-c(ind[1]:ind[2])]
-    orderX <-  whichgrep(automdl,"maxorder")
+    orderX <-  whichgrep(automdl,"automdl.maxorder")
     if(length(orderX)>0){
       maxorder <- as.numeric(unlist(strsplit(gsub1(automdl[orderX],"maxorder"),",")))
       para <- setP(para,list(maxorder=maxorder))
     }
-    diffX <-  whichgrep(automdl,"maxdiff")
+    diffX <-  whichgrep(automdl,"automdl.maxdiff")
     if(length(diffX)>0){
       maxdiff <- as.numeric(unlist(strsplit(gsub1(automdl[diffX],"maxdiff"),",")))
       para <- setP(para,list(maxdiff=maxdiff))

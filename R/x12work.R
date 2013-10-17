@@ -70,8 +70,8 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
 	x11final <- x11.final
 	x11regress <- x11regression
 	
-	
-file.remove(grep(basename(file),list.files(dirname(file)),value=TRUE))
+  
+#file.remove(grep(basename(file),list.files(dirname(file)),value=TRUE))
 unlink(paste(dirname(file),"/gra",sep=""),recursive=TRUE)
 if((length(tso)/period)>15 && !is.null(backcast_years) && !showWarnings){
 cat("\nWarning: x12 cannot produce backcasts for time series that are more than 15 years long!\n")
