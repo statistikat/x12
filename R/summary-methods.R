@@ -4,8 +4,14 @@ setMethod("summary",
     {
       if(length(object@dg)>0){
         if(print)
-          summaryworkhorse(object@dg,fullSummary=fullSummary,spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,identify=identify)
-        invisible(summary.output.workhorse(object@dg,fullSummary=fullSummary,spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,identify=identify))
+          summaryworkhorse(object@dg,fullSummary=fullSummary,spectra.detail=spectra.detail,
+              almostout=almostout,rsd.autocorr=rsd.autocorr,quality.stat=quality.stat,
+              likelihood.stat=likelihood.stat,aape=aape,id.rsdseas=id.rsdseas,
+              slidingspans=slidingspans,history=history,identify=identify)
+        invisible(summary.output.workhorse(object@dg,fullSummary=fullSummary,
+                spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,
+                quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,
+                id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,identify=identify))
       }else{
         cat("You need to run x12 before viewing a summary!\n")
       }
@@ -13,7 +19,9 @@ setMethod("summary",
 )
 setMethod("summary",
     signature(object = "x12Single"),
-    function (object, fullSummary=FALSE, spectra.detail=FALSE, almostout=FALSE, rsd.autocorr=NULL, quality.stat=FALSE, likelihood.stat=FALSE, aape=FALSE, id.rsdseas=FALSE,slidingspans=FALSE, history=FALSE, identify=FALSE, oldOutput=NULL,print=TRUE) 
+    function (object, fullSummary=FALSE, spectra.detail=FALSE, almostout=FALSE, rsd.autocorr=NULL,
+        quality.stat=FALSE, likelihood.stat=FALSE, aape=FALSE, id.rsdseas=FALSE,slidingspans=FALSE,
+        history=FALSE, identify=FALSE, oldOutput=NULL,print=TRUE) 
     { 
       ############
 #		sumout<-unlist(summary.output[,1])
@@ -27,14 +35,22 @@ setMethod("summary",
             cat("--------------------------  ",object@tsName,"  ------------------------------------\n")
             cat("-----------------------------------------------------------------------------------\n")
           }
-          summary.output<-summary(object@x12Output,fullSummary=fullSummary,spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,identify=identify,print=print)
+          summary.output<-summary(object@x12Output,fullSummary=fullSummary,
+              spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,
+              quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,
+              id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,
+              identify=identify,print=print)
           names(summary.output)[2]<-object@tsName
         }else{  
           if(print){
             cat("--------------------------  Rout  ------------------------------------\n")
             cat("-----------------------------------------------------------------------------------\n")
           }
-          summary.output<-summary(object@x12Output,fullSummary=fullSummary,spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,identify=identify,print=print)
+          summary.output<-summary(object@x12Output,fullSummary=fullSummary,
+              spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,
+              quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,
+              id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,
+              identify=identify,print=print)
         }
       }else{
         nprev <- min(length(object@x12OldOutput),oldOutput)
@@ -43,14 +59,22 @@ setMethod("summary",
             cat("--------------------------  ",object@tsName,"  ------------------------------------\n")
             cat("-----------------------------------------------------------------------------------\n")
           }
-          summary.output<-summary(object@x12Output,fullSummary=fullSummary,spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,identify=identify,print=print)
+          summary.output<-summary(object@x12Output,fullSummary=fullSummary,
+              spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,
+              quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,
+              id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,
+              identify=identify,print=print)
           names(summary.output)[2]<-object@tsName
         }else{
           if(print){
             cat("--------------------------  Rout  ------------------------------------\n")
             cat("-----------------------------------------------------------------------------------\n")
           }
-          summary.output<-summary(object@x12Output,fullSummary=fullSummary,spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,identify=identify,print=print)
+          summary.output<-summary(object@x12Output,fullSummary=fullSummary,
+              spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,
+              quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,
+              id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,
+              identify=identify,print=print)
         }
         if(nprev>0){
           for(i in nprev:1){
@@ -63,7 +87,11 @@ setMethod("summary",
             if(TF){
               if(print)
                 cat("\n---------------------------  RUN  ",i,"  ----------------------------------------\n")
-              summary.oldout<-summary(object@x12OldOutput[[i]],fullSummary=fullSummary,spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,identify=identify,print=print)
+              summary.oldout<-summary(object@x12OldOutput[[i]],fullSummary=fullSummary,
+                  spectra.detail=spectra.detail,almostout=almostout,rsd.autocorr=rsd.autocorr,
+                  quality.stat=quality.stat,likelihood.stat=likelihood.stat,aape=aape,
+                  id.rsdseas=id.rsdseas,slidingspans=slidingspans,history=history,
+                  identify=identify,print=print)
               names(summary.oldout)<-names(summary.output)
               summary.oldout<-rbind(c(paste("OLD OUTPUT",i),paste("Run",i)),summary.oldout)
               summary.output<-rbind(summary.output,summary.oldout)
@@ -80,7 +108,8 @@ setMethod("summary",
 setMethod("summary",
     signature(object = "x12Batch"),
     function (object, fullSummary=FALSE, spectra.detail=FALSE, almostout=FALSE, rsd.autocorr=NULL,
-        quality.stat=FALSE, likelihood.stat=FALSE, aape=FALSE, id.rsdseas=FALSE,slidingspans=FALSE,history=FALSE,identify=FALSE,oldOutput=NULL,print=TRUE) 
+        quality.stat=FALSE, likelihood.stat=FALSE, aape=FALSE, id.rsdseas=FALSE,
+        slidingspans=FALSE,history=FALSE,identify=FALSE,oldOutput=NULL,print=TRUE) 
     {
       summary.output<-list()
       for(i in 1:length(object@x12List)){
