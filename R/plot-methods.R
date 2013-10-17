@@ -595,6 +595,51 @@ setMethod(f='plot',
     }
 )
 
+setMethod(f='plot',
+    signature=signature(x = "x12Batch"),
+    definition=function(x,what="ask",original=TRUE,sa=FALSE,trend=FALSE,
+        log_transform=FALSE,
+        ylab="Value",xlab="Date",
+        main="TS",
+        col_original="black",col_sa="blue",col_trend="green",
+        lwd_original=1,lwd_sa=1,lwd_trend=1,lty_sa=1,lty_trend=1,
+        ytop=1,showAllout=FALSE,showAlloutLines=FALSE,showOut=NULL,annComp=TRUE,annCompTrend=TRUE,
+        col_ao="red",col_ls="red",col_tc="red",col_annComp="grey",lwd_out=1,cex_out=1.5,
+        pch_ao=4,pch_ls=2,pch_tc=23,plot_legend=TRUE,legend_horiz=TRUE,legend_bty="o",
+        ### implement plotFbcast
+        forecast=FALSE,backcast=FALSE,showCI=TRUE,
+        col_fc="#2020ff",col_bc="#2020ff",col_ci="#d1d1ff",col_cishade="#d1d1ff",
+        lty_original=1,lty_fc=2,lty_bc=2,lty_ci=1,lwd_fc=1,lwd_bc=1,lwd_ci=1,
+        points_bc=FALSE,points_fc=FALSE,points_original=FALSE,
+        showLine=FALSE,col_line="grey",lty_line=3,ylim=NULL,span=NULL,...){
+      n <- length(x@x12List)
+         if(what=="ask"){
+           ask=par("ask")
+           par(ask=TRUE)
+      for(i in 1:n){
+        mainB <- paste(xb@x12List[[i]]@tsName,main,sep="-")
+        plot(x@x12List[[i]]@x12Output,original=original,sa=sa,trend=trend,
+          log_transform=log_transform,
+          ylab=ylab,xlab=xlab,
+          main=mainB,
+          col_original=col_original,col_sa=col_sa,col_trend=col_trend,
+          lwd_original=lwd_original,lwd_sa=lwd_sa,lwd_trend=lwd_trend,lty_sa=lty_sa,lty_trend=lty_sa,
+          ytop=ytop,showAllout=showAllout,showAlloutLines=showAlloutLines,showOut=showOut,annComp=annComp,annCompTrend=annCompTrend,
+          col_ao=col_ao,col_ls=col_ls,col_tc=col_tc,col_annComp=col_annComp,lwd_out=lwd_out,cex_out=cex_out,
+          pch_ao=pch_ao,pch_ls=pch_ls,pch_tc=pch_tc,plot_legend=plot_legend,
+          legend_horiz=legend_horiz,legend_bty=legend_bty,
+          ### implement plotFbcast
+          forecast=forecast,backcast=backcast,showCI=showCI,
+          col_fc=col_fc,col_bc=col_bc,col_ci=col_ci,col_cishade=col_cishade,
+          lty_original=lty_original,lty_fc=lty_fc,lty_bc=lty_bc,lty_ci=lty_ci,lwd_fc=lwd_fc,lwd_bc=lwd_bc,lwd_ci=lwd_ci,
+          points_bc=points_bc,points_fc=points_fc,points_original=points_original,
+          showLine=showLine,col_line=col_line,lty_line=lty_line,ylim=ylim,span=span,...)
+      }
+    }
+    par(ask=ask)
+    }
+)
+
 setGeneric("plotRsdAcf",
     function(x, ...) { standardGeneric("plotRsdAcf")} )
 

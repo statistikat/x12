@@ -80,6 +80,7 @@ cat("\nWarning: x12 cannot produce backcasts for time series that are more than 
 
 	  header <- vector()
 	  header[length(header)+1] <- "series{"
+    header[length(header)+1] <- "save=(a1 b1)"
 	  header[length(header)+1] <- 'title="R Output for x12a"'
 	  header[length(header)+1] <- paste("start=",paste(start(tso),collapse="."),sep="")
 	  if(!is.null(span)){
@@ -114,10 +115,13 @@ cat("\nWarning: x12 cannot produce backcasts for time series that are more than 
 #	  }
 #ERROR:  Argument name "type" not found 
 
-	  header[length(header)+1] <- "data=("
-	  datarows<-as.vector(tso)
-	  datarows[length(datarows)+1] <- ")"
-	  datarows[length(datarows)+1] <- "}"
+    header[length(header)+1] <- paste("file = \"",file,".dat\"",sep="")
+    write(as.vector(tso),file=paste(file,".dat",sep=""),ncolumns =1)
+	  #header[length(header)+1] <- "data=("
+	  #datarows<-as.vector(tso)
+	  #datarows[length(datarows)+1] <- ")"
+    #datarows[length(datarows)+1] <- "}"
+    header[length(header)+1] <- "}"
 	  addcommands <- vector()
 	  if(!x11regress){#transform ausschalten falls x11 Regression
 		  addcommands[length(addcommands)+1] <- paste("transform{") 
@@ -151,6 +155,7 @@ cat("\nWarning: x12 cannot produce backcasts for time series that are more than 
 		  #cat("Arima and Sarima model specifications are ignored, because automdl is activated! \n")
 	  if(any(!is.null(c(regvariables,reguser,regfile,aictest,regfilestart,usertype,centeruser))) &&! x11regress){
 		  addcommands[length(addcommands)+1] <- "regression{"
+      addcommands[length(addcommands)+1] <- "save=otl"
 		  if(!is.null(regvariables))
 			  addcommands[length(addcommands)+1] <- paste("variables=(",paste(regvariables,collapse=" "),")",sep="")
 		  if(!is.null(aictest))
@@ -329,6 +334,7 @@ cat("\nWarning: x12 cannot produce backcasts for time series that are more than 
 #Forecasts Backcasts
 		if(!is.null(forecast_years) | !is.null(backcast_years)){
 		  addcommands[length(addcommands)+1] <- "forecast {"
+      addcommands[length(addcommands)+1] <- "save=ftr"
 		  if(!is.null(forecast_years)){
 			  addcommands[length(addcommands)+1] <- paste("maxlead=",forecast_years*frequency(tso),sep="")
 		  }
@@ -340,6 +346,7 @@ cat("\nWarning: x12 cannot produce backcasts for time series that are more than 
 	  }#end nicht bei x11 Regression
 	  if(!seats){
 		  addcommands[length(addcommands)+1] <- "x11{"
+      addcommands[length(addcommands)+1] <- "save=(d10 d11 d12)"
 		  if(!is.null(onlytd)){
 			  addcommands[length(addcommands)+1] <- paste("type=",onlytd,sep="")		
 		 }  			  
@@ -436,7 +443,8 @@ cat("\nWarning: x12 cannot produce backcasts for time series that are more than 
 
   con <- file(paste(file,".spc",sep=""))
 
-  writeLines(c(header,datarows,addcommands),con)
+  #writeLines(c(header,datarows,addcommands),con)
+  writeLines(c(header,addcommands),con)
   close(con)
 
   # Rewritten, for not using sh or bat files (Suggestions by Peter Ellis)

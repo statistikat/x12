@@ -142,8 +142,12 @@ readSpcS <- function(file,filename=TRUE){
     trans <- Lines[ind[1]:ind[2]]
     Lines <- Lines[-c(ind[1]:ind[2])]   
     func <- whichgrep(trans,"function")
-    trans <- gsub2(trans[func],"function")
-    para <- setP(para,list(transform.function=trans))
+    transF <- gsub2(trans[func],"function")
+    para <- setP(para,list(transform.function=transF))
+    adj <- whichgrep(trans,"adjust")
+    trans <- gsub2(trans[adj],"adjust")
+    if(length(trans>0))
+      para <- setP(para,list(transform.adjust=trans))
   }
 ###OUTLIER
   ind <- getPart(Lines,"outlier")
@@ -275,6 +279,11 @@ readSpcS <- function(file,filename=TRUE){
     oosX <-  whichgrep(estimate,"OUTOFSAMPLE")
     if(length(oosX)>0){
       oos <- yes(gsub1(estimate[oosX],"OUTOFSAMPLE"))
+      para <- setP(para,list(estimate.outofsample=oos))
+    }
+    oosX <-  whichgrep(estimate,"outofsample")
+    if(length(oosX)>0){
+      oos <- yes(gsub1(estimate[oosX],"outofsample"))
       para <- setP(para,list(estimate.outofsample=oos))
     }
   }
