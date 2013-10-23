@@ -5,6 +5,7 @@
 %\alias{plot,spectrum-method}
 \alias{plot,x12Output-method}
 \alias{plot,x12Single-method}
+\alias{plot,x12Batch-method}
 \alias{plot}
 
 \title{ ~~ Methods for Function \code{plot} in Package \pkg{x12} ~~}
@@ -32,6 +33,17 @@ Plot function for \code{\link{x12}} output in package \pkg{x12}.
 
 \usage{
 \S4method{plot}{x12Single}(x, original=TRUE, sa=FALSE, trend=FALSE, log_transform=FALSE,
+  ylab="Value", xlab="Date", main="TS", col_original="black", col_sa="blue",
+  col_trend="green", lwd_original=1, lwd_sa=1, lwd_trend=1, lty_sa=1, lty_trend=1, ytop=1,
+  showAllout=FALSE, showAlloutLines=FALSE, showOut=NULL, annComp=TRUE, annCompTrend=TRUE,
+  col_ao="red", col_ls="red", col_tc="red", col_annComp="grey", lwd_out=1, cex_out=1.5,
+  pch_ao=4, pch_ls=2, pch_tc=23, plot_legend=TRUE, legend_horiz=TRUE, legend_bty="o",
+  forecast=FALSE, backcast=FALSE,
+  showCI=TRUE, col_fc="#2020ff", col_bc="#2020ff", col_ci="#d1d1ff",
+  col_cishade="#d1d1ff", lty_original=1, lty_fc=2, lty_bc=2, lty_ci=1, lwd_fc=1, lwd_bc=1,
+  lwd_ci=1, points_bc=FALSE, points_fc=FALSE, points_original=FALSE, showLine=FALSE,
+  col_line="grey", lty_line=3, ylim=NULL, span=NULL, ...)
+\S4method{plot}{x12Batch}(x, what="ask",original=TRUE, sa=FALSE, trend=FALSE, log_transform=FALSE,
   ylab="Value", xlab="Date", main="TS", col_original="black", col_sa="blue",
   col_trend="green", lwd_original=1, lwd_sa=1, lwd_trend=1, lty_sa=1, lty_trend=1, ytop=1,
   showAllout=FALSE, showAlloutLines=FALSE, showOut=NULL, annComp=TRUE, annCompTrend=TRUE,
@@ -116,6 +128,7 @@ Plot function for \code{\link{x12}} output in package \pkg{x12}.
 \item{span}{vector of length 4, limiting the data used for the plot.\cr
   Start and end date of said time interval can be specified by 4 integers in the format \code{c(start year, start seasonal period, end year, end seasonal period)}
   }
+\item{what}{How multiple plots should be treated. "ask" is the only option at the moment.}
 \item{...}{ignored.}
 }
 

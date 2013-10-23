@@ -35,7 +35,7 @@ afterwards the output is read into R.
 	x11.excludefcst=TRUE,x11.final="user",
 	x11regression=FALSE,
 	tblnames=NULL,Rtblnames=NULL,
-	x12path=NULL,x13path=NULL,use="x12",keep_x12out=FALSE,showWarnings=TRUE)
+	x12path=NULL,x13path=NULL,use="x12",keep_x12out=TRUE,showWarnings=TRUE)
 %		seats=FALSE, seatsparameter=NULL,
 		
 }

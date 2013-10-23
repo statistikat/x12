@@ -276,14 +276,11 @@ readSpcS <- function(file,filename=TRUE){
     para <- setP(para,list=(estimate=TRUE))
     estimate <- Lines[ind[1]:ind[2]]
     Lines <- Lines[-c(ind[1]:ind[2])]
-    oosX <-  whichgrep(estimate,"OUTOFSAMPLE")
-    if(length(oosX)>0){
-      oos <- yes(gsub1(estimate[oosX],"OUTOFSAMPLE"))
-      para <- setP(para,list(estimate.outofsample=oos))
-    }
     oosX <-  whichgrep(estimate,"outofsample")
     if(length(oosX)>0){
       oos <- yes(gsub1(estimate[oosX],"outofsample"))
+      if(oos)
+        para <- setP(para,list(estimate=TRUE))
       para <- setP(para,list(estimate.outofsample=oos))
     }
   }

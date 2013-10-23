@@ -150,7 +150,7 @@ setClass(
 			x11.appendfcst=TRUE,
 			x11.appendbcst=FALSE,
 			x11.calendarsigma=NULL,
-			x11.excludefcst=TRUE,
+			x11.excludefcst=FALSE,
 			x11.final="user",
 			x11regression=FALSE
 #			seats=FALSE, 
