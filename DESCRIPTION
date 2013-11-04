@@ -26,4 +26,5 @@ Collate:
     'times.R'
     'x12-methods.R'
     'x12work.R'
+    'readx12Out.R'
     'zzz.R'
