@@ -579,7 +579,7 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
 #			stop("Error! No proper run of x12! Check your parameter settings.\n=> Beware that files in \"gra\" directory do not represent current x12 output")
 #		}
   
-  if(!file.exists(paste(filename,".","udg",sep=""))){
+  if(!file.exists(paste(filename,".","err",sep=""))){
     
     errorfile <- readLines(con=paste(file,".","err",sep=""),n=-1)
     for(i in 1:length(errorfile)){
