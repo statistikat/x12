@@ -1,7 +1,6 @@
 setGeneric("lineX12",
     function(x, param1,param2,...) { standardGeneric("lineX12")} )
 
-
 setMethod(
     f='lineX12',
     signature=signature(x = "x12Output"),definition=function(x,param1,param2,...)
