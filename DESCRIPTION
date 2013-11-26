@@ -16,6 +16,7 @@ Collate:
     'class.R'
     'crossVal-methods.R'
     'env_functions.R'
+    'ggplot2Fn.R'
     'parameter-methods.R'
     'plot-methods.R'
     'plotFunctions.R'
