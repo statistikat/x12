@@ -7,7 +7,7 @@ setMethod(
     {
       plot(1)
     })
-
+a
 setMethod(
     f='lineX12',
     signature=signature(x = "x12Single"),definition=function(x,param1,param2,...)
