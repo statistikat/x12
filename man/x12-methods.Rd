@@ -45,7 +45,7 @@ x12(object,x12Parameter=new("x12Parameter"),x12BaseInfo=new("x12BaseInfo"),...)
   \url{http://www.census.gov/srd/www/x12a/}
 }
 
-
+\note{cleanHistory is deprecated and cleanTracking should be used instead.}
 \author{
 Alexander Kowarik, Angelika Meraner}
 
@@ -59,6 +59,7 @@ Alexander Kowarik, Angelika Meraner}
 \code{\link{saveP}},
 \code{\link{prev}},
 \code{\link{cleanHistory}},
+\code{\link{cleanTracking}},
 \code{\link{crossVal}}
 }
 

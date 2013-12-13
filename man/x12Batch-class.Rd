@@ -25,13 +25,14 @@ Objects can be created by calls of the form \code{new("x12Batch", tsList, tsName
     \item{\code{\link{setP}}}{\code{signature(object = "x12Batch")}: ... }
     \item{\code{\link{getP}}}{\code{signature(object = "x12Batch")}: ... }
     \item{\code{\link{prev}}}{\code{signature(object = "x12Batch")}: ... }
-    \item{\code{\link{cleanHistory}}}{\code{signature(object = "x12Batch")}: ... }
+    \item{\code{\link{cleanTracking}}}{\code{signature(object = "x12Batch")}: ... }
     \item{\code{\link{loadP}}}{\code{signature(object = "x12Batch")}: ... }
     \item{\code{\link{saveP}}}{\code{signature(object = "x12Batch")}: ... }
     \item{\code{\link{summary}}}{\code{signature(object = "x12Batch")}: ... }
     \item{\code{\link{x12}}}{\code{signature(object = "x12Batch")}: ... }
     \item{dim}{\code{signature(x = "x12Batch")}: ... }
     \item{length}{\code{signature(x = "x12Batch")}: ... }
+    \item{\code{\link{cleanHistory}}}{\code{signature(object = "x12Batch")}: ... }
 	 }
 }
 \author{
@@ -52,6 +53,7 @@ Alexander Kowarik
 %\code{\link{summary.x12work}},
 \code{\link{x12work}}
 }
+\note{cleanHistory is deprecated and cleanTracking should be used instead.}
 \examples{
 \dontrun{
 #object containing 4 time series and the corresponding parameters and output

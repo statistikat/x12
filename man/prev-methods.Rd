@@ -39,7 +39,7 @@ Function \code{cleanHistory} resets \code{x12OldParameter} and \code{x12OldOutpu
 
 \seealso{\code{\link{x12}}}
 
-
+\note{cleanHistory is deprecated and cleanTracking should be used instead.}
 \examples{
 data(AirPassengersX12)
 summary(AirPassengersX12)

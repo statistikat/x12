@@ -73,7 +73,7 @@ Delivers a diagnostics summary for \code{\link{x12}} output.
 \author{Alexander Kowarik, Angelika Meraner}
 
 \seealso{\code{\link{prev}},
-	\code{\link{cleanHistory}}
+	\code{\link{cleanTracking}}
 }
 
 \examples{
