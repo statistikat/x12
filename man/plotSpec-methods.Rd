@@ -16,7 +16,7 @@ Spectral plots with function \code{plotSpec} in package \pkg{x12}.
 				xlab="Frequency",ylab="Decibels",
 				main="Spectrum",
 				col_bar="darkgrey",col_seasonal="red",col_td="blue",
-				lwd_bar=4,lwd_seasonal=1,lwd_td=1,plot_legend=TRUE,...)}}{
+				lwd_bar=4,lwd_seasonal=4,lwd_td=4,plot_legend=TRUE,...)}}{
 %%  ~~describe this method here~~
 }
 
@@ -24,14 +24,14 @@ Spectral plots with function \code{plotSpec} in package \pkg{x12}.
 				xlab="Frequency",ylab="Decibels",
 				main="Spectrum",
 				col_bar="darkgrey",col_seasonal="red",col_td="blue",
-				lwd_bar=4,lwd_seasonal=1,lwd_td=1,plot_legend=TRUE,...)}}{
+				lwd_bar=4,lwd_seasonal=4,lwd_td=4,plot_legend=TRUE,...)}}{
 %%  ~~describe this method here~~
 }
 \item{\code{signature(x = "spectrum",frequency,
 				xlab="Frequency",ylab="Decibels",
 				main="Spectrum",
 				col_bar="darkgrey",col_seasonal="red",col_td="blue",
-				lwd_bar=4,lwd_seasonal=1,lwd_td=1,plot_legend=TRUE,...)}}{
+				lwd_bar=4,lwd_seasonal=4,lwd_td=4,plot_legend=TRUE,...)}}{
 %%  ~~describe this method here~~
 }
 }}
