@@ -17,10 +17,10 @@ setMethod(
 
 #x <- s1@x12Output
 setGeneric("specPlotX12",
-    function(x, param1,param2,...) { standardGeneric("lineX12")} )
+    function(x, param1,param2,...) { standardGeneric("specPlotX12")} )
 
 setGeneric("acfPlotX12",
-    function(x, param1,param2,...) { standardGeneric("lineX12")} )
+    function(x, param1,param2,...) { standardGeneric("acfPlotX12")} )
 
 setGeneric("seasFacX12",
-    function(x, param1,param2,...) { standardGeneric("lineX12")} )
+    function(x, param1,param2,...) { standardGeneric("seasFacX12")} )
