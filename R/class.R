@@ -13,146 +13,146 @@ setClassUnion("numericOrNULLOrcharacter", c("numeric", "character","NULL"))
 setClass(
     Class="x12Parameter", 
     representation=representation(			
-      #period="numeric",
-      series.span="numericOrNULLOrcharacter",
-	  series.modelspan="numericOrNULLOrcharacter",
-	  #series.type="characterOrNULL",
-	  #decimals="numeric",
-	transform.function="character",
-	transform.power="numericOrNULL",
-	transform.adjust="characterOrNULL",
-	regression.variables="characterOrNULL",
-	regression.user="characterOrNULL",
-	regression.file="characterOrNULL",
-	regression.usertype="characterOrNULL",
-	regression.centeruser="characterOrNULL",
-	regression.start="numericOrNULLOrcharacter",
-	regression.aictest="characterOrNULL",
-	#outlier="logical",
-	outlier.types="characterOrNULL",
-	outlier.critical="listOrNULLOrnumeric",
-	outlier.span="numericOrNULLOrcharacter",
-	outlier.method="characterOrNULL",	
-	identify="logical",
-	identify.diff="numericOrNULL",
-	identify.sdiff="numericOrNULL",
-	identify.maxlag="numericOrNULL",	
-	arima.model="numericOrNULL",
-	arima.smodel="numericOrNULL",
-	arima.ar="numericOrNULLOrcharacter",
-	arima.ma="numericOrNULLOrcharacter",
-	automdl="logical",
-	automdl.acceptdefault="logical",
-	automdl.balanced="logical",
-	automdl.maxorder="numeric",
-	automdl.maxdiff="numeric",
-	forecast_years="numericOrNULL",
-	backcast_years="numericOrNULL",
-	forecast_conf="numeric",
-	estimate="logical",
-	estimate.outofsample="logical",
-	check="logical",
-	check.maxlag="numericOrNULL",
-	slidingspans="logical",
-	slidingspans.fixmdl="characterOrNULL",
-	slidingspans.fixreg="characterOrNULL",
-	slidingspans.length="numericOrNULL",
-	slidingspans.numspans="numericOrNULL",
-	slidingspans.outlier="characterOrNULL",
-	slidingspans.additivesa="characterOrNULL",
-	slidingspans.start="numericOrNULLOrcharacter",
-	history="logical",
-	history.estimates="characterOrNULL",
-	history.fixmdl="logical",
-	history.fixreg="characterOrNULL",
-	history.outlier="characterOrNULL",
-	history.sadjlags="numericOrNULL",
-	history.trendlags="numericOrNULL",
-	history.start="numericOrNULLOrcharacter",
-	history.target="characterOrNULL",
-	x11.sigmalim="numericOrNULL",
-	x11.type="characterOrNULL",#vorher onlytd="logical"
-	x11.sfshort="logical",
-	x11.samode="characterOrNULL",
-	x11.seasonalma="characterOrNULL",
-	x11.trendma="numericOrNULL",
-	x11.appendfcst="logical",
-	x11.appendbcst="logical",
-	x11.calendarsigma="characterOrNULL",
-	x11.excludefcst="logical", 
-	x11.final="character",
-	x11regression="logical"
+        #period="numeric",
+        series.span="numericOrNULLOrcharacter",
+        series.modelspan="numericOrNULLOrcharacter",
+        #series.type="characterOrNULL",
+        #decimals="numeric",
+        transform.function="character",
+        transform.power="numericOrNULL",
+        transform.adjust="characterOrNULL",
+        regression.variables="characterOrNULL",
+        regression.user="characterOrNULL",
+        regression.file="characterOrNULL",
+        regression.usertype="characterOrNULL",
+        regression.centeruser="characterOrNULL",
+        regression.start="numericOrNULLOrcharacter",
+        regression.aictest="characterOrNULL",
+        #outlier="logical",
+        outlier.types="characterOrNULL",
+        outlier.critical="listOrNULLOrnumeric",
+        outlier.span="numericOrNULLOrcharacter",
+        outlier.method="characterOrNULL",	
+        identify="logical",
+        identify.diff="numericOrNULL",
+        identify.sdiff="numericOrNULL",
+        identify.maxlag="numericOrNULL",	
+        arima.model="numericOrNULL",
+        arima.smodel="numericOrNULL",
+        arima.ar="numericOrNULLOrcharacter",
+        arima.ma="numericOrNULLOrcharacter",
+        automdl="logical",
+        automdl.acceptdefault="logical",
+        automdl.balanced="logical",
+        automdl.maxorder="numeric",
+        automdl.maxdiff="numeric",
+        forecast_years="numericOrNULL",
+        backcast_years="numericOrNULL",
+        forecast_conf="numeric",
+        estimate="logical",
+        estimate.outofsample="logical",
+        check="logical",
+        check.maxlag="numericOrNULL",
+        slidingspans="logical",
+        slidingspans.fixmdl="characterOrNULL",
+        slidingspans.fixreg="characterOrNULL",
+        slidingspans.length="numericOrNULL",
+        slidingspans.numspans="numericOrNULL",
+        slidingspans.outlier="characterOrNULL",
+        slidingspans.additivesa="characterOrNULL",
+        slidingspans.start="numericOrNULLOrcharacter",
+        history="logical",
+        history.estimates="characterOrNULL",
+        history.fixmdl="logical",
+        history.fixreg="characterOrNULL",
+        history.outlier="characterOrNULL",
+        history.sadjlags="numericOrNULL",
+        history.trendlags="numericOrNULL",
+        history.start="numericOrNULLOrcharacter",
+        history.target="characterOrNULL",
+        x11.sigmalim="numericOrNULL",
+        x11.type="characterOrNULL",#vorher onlytd="logical"
+        x11.sfshort="logical",
+        x11.samode="characterOrNULL",
+        x11.seasonalma="characterOrNULL",
+        x11.trendma="numericOrNULL",
+        x11.appendfcst="logical",
+        x11.appendbcst="logical",
+        x11.calendarsigma="characterOrNULL",
+        x11.excludefcst="logical", 
+        x11.final="character",
+        x11regression="logical"
 #	seats="logical",
 #	seatsparameter="characterOrNULL"
     ),
     prototype=prototype(
-			series.span=NULL,
-			series.modelspan=NULL,
-			#series.type=NULL,
-			transform.function="auto",
-			transform.power=NULL,
-			transform.adjust=NULL,
-			regression.variables=NULL,
-			regression.user=NULL,
-			regression.file=NULL,
-			regression.usertype=NULL,
-			regression.centeruser=NULL,
-			regression.start=NULL,
-			regression.aictest=NULL,
-			#outlier=FALSE,
-			outlier.types=NULL,
-			outlier.critical=NULL,
-			outlier.span=NULL,
-			outlier.method=NULL,
-			identify=FALSE,
-			identify.diff=NULL,
-			identify.sdiff=NULL,
-			identify.maxlag=NULL,
-			arima.model=NULL,
-			arima.smodel=NULL,
-			arima.ar=NULL,
-			arima.ma=NULL,
-			automdl=TRUE,
-			automdl.acceptdefault=FALSE,
-			automdl.balanced=TRUE,
-			automdl.maxorder=c(3,2),
-			automdl.maxdiff=c(1,1),
-			forecast_years=1,
-			backcast_years=NULL,
-			forecast_conf=.95,
-			estimate=FALSE,
-			estimate.outofsample=TRUE,
-			check=TRUE,
-			check.maxlag=NULL,
-			slidingspans=FALSE,
-			slidingspans.fixmdl=NULL,
-			slidingspans.fixreg=NULL,
-			slidingspans.length=NULL,
-			slidingspans.numspans=NULL,
-			slidingspans.outlier=NULL,
-			slidingspans.additivesa=NULL,
-			slidingspans.start=NULL,
-			history=FALSE,
-			history.estimates=NULL,
-			history.fixmdl=FALSE,
-			history.fixreg=NULL,
-			history.outlier=NULL,
-			history.sadjlags=NULL,
-			history.trendlags=NULL,
-			history.start=NULL,
-			history.target=NULL,
-			x11.sigmalim=c(1.5,2.5),
-			x11.type=NULL,
-			x11.sfshort=FALSE,
-			x11.samode=NULL,
-			x11.seasonalma=NULL,
-			x11.trendma=NULL,
-			x11.appendfcst=TRUE,
-			x11.appendbcst=FALSE,
-			x11.calendarsigma=NULL,
-			x11.excludefcst=FALSE,
-			x11.final="user",
-			x11regression=FALSE
+        series.span=NULL,
+        series.modelspan=NULL,
+        #series.type=NULL,
+        transform.function="auto",
+        transform.power=NULL,
+        transform.adjust=NULL,
+        regression.variables=NULL,
+        regression.user=NULL,
+        regression.file=NULL,
+        regression.usertype=NULL,
+        regression.centeruser=NULL,
+        regression.start=NULL,
+        regression.aictest=NULL,
+        #outlier=FALSE,
+        outlier.types=NULL,
+        outlier.critical=NULL,
+        outlier.span=NULL,
+        outlier.method=NULL,
+        identify=FALSE,
+        identify.diff=NULL,
+        identify.sdiff=NULL,
+        identify.maxlag=NULL,
+        arima.model=NULL,
+        arima.smodel=NULL,
+        arima.ar=NULL,
+        arima.ma=NULL,
+        automdl=TRUE,
+        automdl.acceptdefault=FALSE,
+        automdl.balanced=TRUE,
+        automdl.maxorder=c(3,2),
+        automdl.maxdiff=c(1,1),
+        forecast_years=1,
+        backcast_years=NULL,
+        forecast_conf=.95,
+        estimate=FALSE,
+        estimate.outofsample=TRUE,
+        check=TRUE,
+        check.maxlag=NULL,
+        slidingspans=FALSE,
+        slidingspans.fixmdl=NULL,
+        slidingspans.fixreg=NULL,
+        slidingspans.length=NULL,
+        slidingspans.numspans=NULL,
+        slidingspans.outlier=NULL,
+        slidingspans.additivesa=NULL,
+        slidingspans.start=NULL,
+        history=FALSE,
+        history.estimates=NULL,
+        history.fixmdl=FALSE,
+        history.fixreg=NULL,
+        history.outlier=NULL,
+        history.sadjlags=NULL,
+        history.trendlags=NULL,
+        history.start=NULL,
+        history.target=NULL,
+        x11.sigmalim=c(1.5,2.5),
+        x11.type=NULL,
+        x11.sfshort=FALSE,
+        x11.samode=NULL,
+        x11.seasonalma=NULL,
+        x11.trendma=NULL,
+        x11.appendfcst=TRUE,
+        x11.appendbcst=FALSE,
+        x11.calendarsigma=NULL,
+        x11.excludefcst=FALSE,
+        x11.final="user",
+        x11regression=FALSE
 #			seats=FALSE, 
 #			seatsparameter=NULL
     ),
@@ -163,13 +163,13 @@ setClass(
 setClass(
     Class="spectrum", 
     representation=representation(
-      frequency="numeric",
-      spectrum="numeric"
+        frequency="numeric",
+        spectrum="numeric"
     ),prototype=
         prototype(
-        frequency=new("numeric"),
-        spectrum=new("numeric")
-    ),
+            frequency=new("numeric"),
+            spectrum=new("numeric")
+        ),
     validity=function(object) {
       length(object@spectrum)==length(object@frequency)
     }
@@ -193,10 +193,10 @@ setClass(
 setClass(
     Class="x12BaseInfo",
     representation=representation(
-            x12path = "characterOrNULL",
-            x13path = "characterOrNULL",
-            use = "character",
-            showWarnings = "logical" 
+        x12path = "characterOrNULL",
+        x13path = "characterOrNULL",
+        use = "character",
+        showWarnings = "logical" 
     ),prototype=
         prototype(
             x12path = NULL,
@@ -205,7 +205,7 @@ setClass(
             showWarnings = FALSE
         ),
     validity=function(object) {
-      (!is.null(object$x12path)||!is.null(object$x13path))&&object$use%in%c("x12","x13")
+      (!is.null(object@x12path)||!is.null(object@x13path))&&object@use%in%c("x12","x13")
     }
 )
 setClass(Class="diagnostics",contains="list")
@@ -213,30 +213,30 @@ setClass(Class="diagnostics",contains="list")
 setClass(
     Class="x12Output", 
     representation=representation(			
-      a1="ts",
-      d10="ts",
-      d11="ts",
-      d12="ts",
-      d13="ts",
-      d16="ts",
-      c17="ts",
-      d9="ts",
-      e2="ts",
-      d8="ts",
-      b1="ts",
-      td="tsOrNULL",
-      otl="tsOrNULL",
-      sp0="spectrum",
-      sp1="spectrum",
-      sp2="spectrum",
-      spr="spectrum",
-      forecast="fbcast",
-      backcast="fbcast",
-      dg="list",
+        a1="ts",
+        d10="ts",
+        d11="ts",
+        d12="ts",
+        d13="ts",
+        d16="ts",
+        c17="ts",
+        d9="ts",
+        e2="ts",
+        d8="ts",
+        b1="ts",
+        td="tsOrNULL",
+        otl="tsOrNULL",
+        sp0="spectrum",
+        sp1="spectrum",
+        sp2="spectrum",
+        spr="spectrum",
+        forecast="fbcast",
+        backcast="fbcast",
+        dg="list",
 #      seats="logical",
-      file="character",
-      tblnames="character",
-      Rtblnames="character"
+        file="character",
+        tblnames="character",
+        Rtblnames="character"
     ),
     prototype=prototype(
         a1=new("ts"),
@@ -289,7 +289,7 @@ setClass(
         x12OldOutput=new("list"),
         tsName=NULL,
         firstRun=FALSE
-),
+    ),
     validity=function(object) {
       return(TRUE)
     }
@@ -305,7 +305,7 @@ setClass(
     ),
     prototype=prototype(
         x12List=new("x12List"),
-        x12BaseInfo=new("x12BaseInfo")
+        x12BaseInfo=new("x12BaseInfo",use="x12",x12path="x12adummy")
     ),
     validity=function(object) {
       return(TRUE)
@@ -335,42 +335,46 @@ setMethod(
 setMethod(
     f='initialize',
     signature=signature(.Object = "x12BaseInfo"),
-    definition=function(.Object,x12path=NULL,x13path=NULL,use="x12",showWarnings=FALSE) {
+    definition=function(.Object,x12path=NULL,x13path=NULL,use=NULL,showWarnings=FALSE) {
       if(is.null(x12path)&&is.null(x13path)&&!existd("x12path")&&!existd("x13path"))
-        stop("You have to give either x12path or x13path as argument or \n
-              specify a variable x12path in the global environment")
-     if(is.null(x12path)&&existd("x12path")){
-       if(file.exists(getd("x12path")))
-         .Object@x12path <- getd("x12path")
-       else
-         stop("file specified in global variable x12path does not exist!\n")
-    }
-    if(is.null(x13path)&&existd("x13path")){
-      if(file.exists(getd("x13path")))
-        .Object@x13path <- getd("x13path")
-      else
-        stop("file specified in global variable x13path does not exist!\n")
-    }
-     if(!is.null(x12path)){
-       if(file.exists(x12path))
-         .Object@x12path <- x12path
-       else
-         stop("file specified in argument x12path does not exist!\n")
-     }
-     if(!is.null(x13path)){
-       if(file.exists(x13path))
-         .Object@x13path <- x13path
-       else
-         stop("file specified in argument x13path does not exist!\n")
-     }
-     if(use=="x12"&&is.null(.Object@x12path))
-       stop("use=x12 but no x12path specified")
-     if(use=="x13"&&is.null(.Object@x13path))
-       stop("use=x13 but no x13path specified")
-     if(!use%in%c("x12","x13"))
-       stop("argument use must be either \"x12\" or \"x13\" !\n ")
-     .Object@use <- use
-     .Object@showWarnings <- showWarnings
+        stop("Please use the functions x12path() or x13path() to define the paths to the binaries.")
+      if(is.null(x12path)&&existd("x12path")){
+        if(file.exists(getd("x12path")))
+          .Object@x12path <- getd("x12path")
+        else
+          stop("file specified in global variable x12path does not exist!\n")
+      }
+      if(is.null(x13path)&&existd("x13path")){
+        if(file.exists(getd("x13path")))
+          .Object@x13path <- getd("x13path")
+        else
+          stop("file specified in global variable x13path does not exist!\n")
+      }
+      if(!is.null(x12path)){
+        if(file.exists(x12path)||x12path=="x12adummy")
+          .Object@x12path <- x12path
+        else 
+          stop("file specified in argument x12path does not exist!\n")
+      }
+      if(!is.null(x13path)){
+        if(file.exists(x13path))
+          .Object@x13path <- x13path
+        else
+          stop("file specified in argument x13path does not exist!\n")
+      }
+      if(is.null(.Object@x12path)&&is.null(.Object@x13path)){
+        stop("Please use the functions x12path() or x13path() to define the paths to the binaries.")
+      }else if(!is.null(.Object@x12path)&&!is.null(.Object@x13path)){
+        warning("x12path and x13path defined, x13 will be used!")
+      }else if(!is.null(.Object@x13path)){
+        use <- "x12"
+        .Object@x12path <- .Object@x13path
+        .Object@x13path <- NULL
+      }else if(!is.null(.Object@x12path)){
+        use <- "x12"
+      }
+      .Object@use <- use
+      .Object@showWarnings <- showWarnings
       return(.Object)
     }
 )
