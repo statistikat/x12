@@ -1,31 +1,31 @@
-Package: x12  
-Version: 1.2.2 
-Date: 2013-12-10 
-Title: x12 - wrapper function and structure for batch processing  
-Author: Alexander Kowarik <alexander.kowarik@statistik.gv.at>, Angelika Meraner  
-Maintainer: Alexander Kowarik <alexander.kowarik@statistik.gv.at>  
-Depends:  
-    R (>= 2.14.0),stats,utils,grDevices  
-Imports:stringr,methods  
-Description: A wrapper function and GUI for the X12 binaries  
-License: GPL (>= 2)  
-LazyData: TRUE  
-SystemRequirements: X-12-ARIMA  
-URL: https://github.com/alexkowa/x12  
-Collate:  
-    'class.R'  
-    'crossVal-methods.R'  
-    'env_functions.R'  
-    'ggplot2Fn.R'  
-    'parameter-methods.R'  
-    'plot-methods.R'  
-    'plotFunctions.R'  
-    'readSpc.R'  
-    'summary-methods.R'  
-    'summary.output.x12.R'  
-    'summary.x12.R'  
-    'times.R'  
-    'x12-methods.R'  
-    'x12work.R'  
-    'readx12Out.R'  
-    'zzz.R'  
+Package: x12   
+Version: 1.2.3 
+Date: 2013-12-13 
+Title: x12 - wrapper function and structure for batch processing   
+Author: Alexander Kowarik <alexander.kowarik@statistik.gv.at>, Angelika Meraner   
+Maintainer: Alexander Kowarik <alexander.kowarik@statistik.gv.at>   
+Depends:   
+    R (>= 2.14.0),stats,utils,grDevices   
+Imports:stringr,methods   
+Description: A wrapper function and GUI for the X12 binaries   
+License: GPL (>= 2)   
+LazyData: TRUE   
+SystemRequirements: X-12-ARIMA   
+URL: https://github.com/alexkowa/x12   
+Collate:   
+    'class.R'   
+    'crossVal-methods.R'   
+    'env_functions.R'   
+    'ggplot2Fn.R'   
+    'parameter-methods.R'   
+    'plot-methods.R'   
+    'plotFunctions.R'   
+    'readSpc.R'   
+    'summary-methods.R'   
+    'summary.output.x12.R'   
+    'summary.x12.R'   
+    'times.R'   
+    'x12-methods.R'   
+    'x12work.R'   
+    'readx12Out.R'   
+    'zzz.R'   
