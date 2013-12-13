@@ -8,7 +8,11 @@
 \alias{cleanHistory-methods}
 \alias{cleanHistory,x12Batch-method}
 \alias{cleanHistory,x12Single-method}
-\title{ ~~ Methods for Function \code{prev} and \code{cleanHistory} in Package \pkg{x12} ~~}
+\alias{cleanArchive}
+\alias{cleanArchive-methods}
+\alias{cleanArchive,x12Batch-method}
+\alias{cleanArchive,x12Single-method}
+\title{ ~~ Methods for Function \code{prev} and \code{cleanArchive} in Package \pkg{x12} ~~}
 \description{
 Function \code{prev} in package \pkg{x12} reverts to previous parameter settings and output.\cr
 Function \code{cleanHistory} resets \code{x12OldParameter} and \code{x12OldOutput}.
@@ -39,7 +43,7 @@ Function \code{cleanHistory} resets \code{x12OldParameter} and \code{x12OldOutpu
 
 \seealso{\code{\link{x12}}}
 
-\note{cleanHistory is deprecated and cleanTracking should be used instead.}
+\note{cleanHistory is deprecated and cleanArchive should be used instead.}
 \examples{
 data(AirPassengersX12)
 summary(AirPassengersX12)

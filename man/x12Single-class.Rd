@@ -28,7 +28,7 @@ Objects can be created by calls of the form \code{new("x12Single", ...)}.
    	\item{\code{\link{setP}}}{\code{signature(object = "x12Single")}}
     \item{\code{\link{getP}}}{\code{signature(object = "x12Single")}}
     \item{\code{\link{prev}}}{\code{signature(object = "x12Single")}}
-    \item{\code{\link{cleanTracking}}}{\code{signature(object = "x12Single")}}
+    \item{\code{\link{cleanArchive}}}{\code{signature(object = "x12Single")}}
     \item{\code{\link{loadP}}}{\code{signature(object = "x12Single")}}
     \item{\code{\link{saveP}}}{\code{signature(object = "x12Single")}}
     \item{\code{\link{summary}}}{\code{signature(object = "x12Single")}}
@@ -44,7 +44,7 @@ Objects can be created by calls of the form \code{new("x12Single", ...)}.
 }
 \author{
 Alexander Kowarik}
-\note{cleanHistory is deprecated and cleanTracking should be used instead.}
+\note{cleanHistory is deprecated and cleanArchive should be used instead.}
 \seealso{
 \code{\link{x12}},
 %\code{\linkS4class{x12Single}},
