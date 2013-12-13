@@ -25,6 +25,8 @@ pathWork <- function(name,path){
   if(is.null(path)){
     if(existd(name))
       return(getd(name))
+    else
+      cat("Not defined!\n")
   }else{
     if(!file.exists(path))
       stop(paste(path," - does not exists.",sep=""))
