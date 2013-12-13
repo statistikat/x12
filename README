@@ -6,3 +6,11 @@ which can be downloaded from http://www.census.gov/srd/www/x12a/ for Windows, Li
 After the installation the x12a.exe or the x12a executable should be on your system. The path to the executable is
 important it is set with the function x12path, e.g., x12path("d:/X12InstallationPath/x12a.exe") or x12path("/usr/bin/x12a").
 
+X-13ARIMA-SEATS (http://www.census.gov/srd/www/x13as/) is the current version of the seasonal adjustment program of the
+US Census Bureau, it can also be used in connection with the R package x12, but at the moment the SEATS Spec is not
+included in the package at the moment, it is planned to include it in a future release.
+
+On Mac OS X and Linux it is possible to compile x12a or x13as, the Makefile template 'makefile.lnx' has to be
+adapted and copied to Makefile afterwards 'make' should work to create the exexcutables.
+
+
