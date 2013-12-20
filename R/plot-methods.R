@@ -674,7 +674,14 @@ setMethod(
       if(which=="rsd.pacf")
         ylab="Partial ACF"
       
-      plot(x[[which]]$lag,x[[which]][[grep("sample",names(x[[which]]),value=TRUE)]],type="h",xlab=xlab,ylab=ylab,main=main,col=col_acf,ylim=ylim,lwd=lwd_acf,...)
+      plot(x[[which]]$lag,x[[which]][[grep("sample",names(x[[which]]),value=TRUE)]],type="h",xlab=xlab,ylab=ylab,main=main,col=col_acf,ylim=ylim,lwd=lwd_acf,xaxt="n",...)
+      if(length(x[[which]]$lag)%in%c(12,24)){
+        aT <- c(6,12,18,24)
+        axis(side=1,at=aT)  
+      }else{
+        aT <- c(4,8,12,16)
+        axis(side=1,at=aT)
+      }
       abline(h=0,col="black")
       lines(x[[which]]$lag,2*x[[which]][[grep("stderr",names(x[[which]]),value=TRUE)]],type="l",col=col_ci,lty=lt_ci)
       lines(x[[which]]$lag,-2*x[[which]][[grep("stderr",names(x[[which]]),value=TRUE)]],type="l",col=col_ci,lty=lt_ci)
