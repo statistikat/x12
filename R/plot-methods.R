@@ -809,11 +809,11 @@ setMethod(
               if(SI_Ratios){
                 if(SI_Ratios_replaced)
                   legend("center",legend=c("Seasonal Factors","Mean","SI Ratio","Replaced SI Ratio"),col=c(col_seasonal,col_mean,col_siratio,col_replaced),pch=c(NA,NA,20,20),
-                      lty=c(1,1,NA,NA),bg="white",ncol=2,pt.cex=1.4,horiz=legend_horiz,bty=legend_bty)
+                      lty=c(1,1,NA,NA),bg="white",pt.cex=1.4,horiz=legend_horiz,bty=legend_bty)
                 else
                   legend("center",legend=c("Seasonal Factors","Mean","SI Ratio"),
                       col=c(col_seasonal,col_mean,col_siratio),pch=c(NA,NA,20),
-                      lty=c(1,1,NA),bg="white",ncol=2,pt.cex=1.4,horiz=legend_horiz,bty=legend_bty)      
+                      lty=c(1,1,NA),bg="white",pt.cex=1.4,horiz=legend_horiz,bty=legend_bty)      
               }else
                 legend("center",legend=c("Seasonal Factors","Mean"),col=c(col_seasonal,col_mean),
                     lty=c(1,1),bg="white",horiz=legend_horiz,bty=legend_bty)
