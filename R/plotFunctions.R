@@ -257,7 +257,8 @@ plot_spectrum_work <- function(frequency,spectrum,xlab="Frequency",ylab="Decibel
         if(f==12){
           aT <- frequency[c(seq(11,61,10),43,53)]
           aL <- paste(round(aT*12),"/",12,sep="")
-          axis(side=1,at=aT,labels=aL)
+          aL[(length(aL)-1):length(aL)] <- c("0.348","0.432")
+          axis(side=1,at=aT,labels=aL,las=2)
         }else{
           aT <- frequency[c(31,61)]
           aL <- paste(aT*12,"/",12,sep="")
