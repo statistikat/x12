@@ -6,7 +6,8 @@ Author: Alexander Kowarik <alexander.kowarik@statistik.gv.at>, Angelika Meraner
 Maintainer: Alexander Kowarik <alexander.kowarik@statistik.gv.at>        
 Depends:        
     R (>= 2.14.0),stats,utils,grDevices        
-Imports:stringr,methods        
+Imports:stringr,methods
+Suggests: parallel        
 Description: A wrapper function and GUI for the X12 binaries        
 License: GPL (>= 2)        
 LazyData: TRUE        

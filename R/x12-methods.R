@@ -92,15 +92,19 @@ setMethod(
     f='x12',
     signature=signature(object = "x12Batch"),
     definition=function(object,forceRun=FALSE) {
+      starting.time <- Sys.time()
       if(existd("x12path"))
         object@x12BaseInfo@x12path <- getd("x12path")
       else
         stop("Please enter an x12path")
-      starting.time <- Sys.time()
-      for(i in 1:length(object@x12List)){
-        object@x12List[[i]] <- x12(object@x12List[[i]],x12BaseInfo=object@x12BaseInfo,forceRun=forceRun)
+      if (is.null(getOption("x12.parallel")) | !require("parallel", quietly=TRUE)){
+        tmpList <- lapply(object@x12List,function(x)x12(x,x12BaseInfo=object@x12BaseInfo,forceRun=forceRun))
+      }else{
+        tmpList <- mclapply(object@x12List,function(x)x12(x,x12BaseInfo=object@x12BaseInfo,forceRun=forceRun),mc.cores=getOption("x12.parallel"))
       }
+      for(i in 1:length(tmpList))
+        object@x12List[[i]] <- tmpList[[i]] 
       print(Sys.time()-starting.time)
       return(object)
-   }
+    }
 )
