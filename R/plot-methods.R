@@ -1022,10 +1022,11 @@ setMethod(
 				}
 				if(showCI){
 					yy <- as.numeric(uci_fc)
-					yCI=c(as.numeric(lci_fc),yy)
-					xCI=c(time(lci_fc),time(lci_fc)[length(yy):1])
+					yCI=c(as.numeric(lci_fc),yy[length(time(yy)):1])
+					xCI=c(time(lci_fc),time(lci_fc)[length(time(yy)):1])
 #		  yCI=c(yCI[length(yCI)],yCI)#,yCI[1])
-#		  xCI=c(xCI[length(xCI)],xCI)#,xCI[1])  
+#		  xCI=c(xCI[length(xCI)],xCI)#,xCI[1])
+          print(cbind(xCI,yCI))
 					polygon(xCI,yCI,col=col_cishade,border=NA)
 					lines(lci_fc,col=col_ci,lty=lty_ci,lwd=lwd_ci)
 					lines(uci_fc,col=col_ci,lty=lty_ci,lwd=lwd_ci)
@@ -1143,6 +1144,7 @@ setMethod(
 					yy.bc <- yy.bc[length(yy.bc):1]
 					yCI.bc=c(as.numeric(lci_bc),yy.bc)
 					xCI.bc=c(time(lci_bc),time(lci_bc)[length(yy.bc):1])
+          
 					polygon(xCI.bc,yCI.bc,col=col_cishade,border=NA)
 					
 					lines(lci_fc,col=col_ci,lty=lty_ci,lwd=lwd_ci)
