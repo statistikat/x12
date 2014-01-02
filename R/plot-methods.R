@@ -1026,7 +1026,6 @@ setMethod(
 					xCI=c(time(lci_fc),time(lci_fc)[length(time(yy)):1])
 #		  yCI=c(yCI[length(yCI)],yCI)#,yCI[1])
 #		  xCI=c(xCI[length(xCI)],xCI)#,xCI[1])
-          print(cbind(xCI,yCI))
 					polygon(xCI,yCI,col=col_cishade,border=NA)
 					lines(lci_fc,col=col_ci,lty=lty_ci,lwd=lwd_ci)
 					lines(uci_fc,col=col_ci,lty=lty_ci,lwd=lwd_ci)
