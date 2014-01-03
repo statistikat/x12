@@ -27,10 +27,10 @@ summary.output.workhorse <- function(x,fullSummary=FALSE,spectra.detail=FALSE,al
     summary.output[dim(summary.output)[1],2]<-span[span.index+1]		
     span.index <- which(span=="modelspan")
     if(length(span.index)>0)
-      modelspan <- c("Model span",span[span.index+1])
+      modelspan <- c("Model Span",span[span.index+1])
     span.index <- which(span=="outlierspan")
     if(length(span.index)>0)
-      outlierspan <- c("Outlier span",span[span.index+1])
+      outlierspan <- c("Outlier Span",span[span.index+1])
   }else{
     summary.output[dim(summary.output)[1]+1,1]<-"Span"
     summary.output[dim(summary.output)[1],2]<-x$span		
