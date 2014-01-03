@@ -25,6 +25,12 @@ summary.output.workhorse <- function(x,fullSummary=FALSE,spectra.detail=FALSE,al
     span.index <- which(span=="span")
     summary.output[dim(summary.output)[1]+1,1]<-"Span"
     summary.output[dim(summary.output)[1],2]<-span[span.index+1]		
+    span.index <- which(span=="modelspan")
+    if(length(span.index)>0)
+      modelspan <- c("Modelspan",span[span.index+1])
+    span.index <- which(span=="outlierspan")
+    if(length(span.index)>0)
+      outlierspan <- c("Outlierspan",span[span.index+1])
   }else{
     summary.output[dim(summary.output)[1]+1,1]<-"Span"
     summary.output[dim(summary.output)[1],2]<-x$span		
@@ -39,6 +45,8 @@ summary.output.workhorse <- function(x,fullSummary=FALSE,spectra.detail=FALSE,al
     }else{
       summary.output[dim(summary.output)[1],2]<- paste("ARIMA Model:",unlist(x$arimamdl))		
     }
+    if(exists("modelspan"))
+      summary.output[dim(summary.output)[1]+1,] <- modelspan
     if(x$transform=="Automatic selection"){
       summary.output[dim(summary.output)[1]+1,1]<-"Transformation"
       summary.output[dim(summary.output)[1],2]<-paste(unlist(x$transform),":",unlist(x$autotransform))
@@ -53,6 +61,8 @@ summary.output.workhorse <- function(x,fullSummary=FALSE,spectra.detail=FALSE,al
     if(x$ifout=="Outlier detection performed"){
       summary.output[dim(summary.output)[1]+1,1]<-"Outlier detection performed"
       summary.output[dim(summary.output)[1],2]<-paste("TRUE")
+      if(exists("outlierspan"))
+        summary.output[dim(summary.output)[1]+1,] <- outlierspan
       
 #			cat("Critical |t| for outliers:\t\n")
       for(i in 1:length(names(x$crit))){
