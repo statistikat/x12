@@ -44,7 +44,7 @@ summaryworkhorse <- function(x,fullSummary=FALSE,spectra.detail=FALSE,almostout=
     }
     #zz <- data.frame("(row names)"= c("aaaaa", "b"), check.names=FALSE)
     if(exists("modelspan"))
-      cat("Modelspan:",span[span.index+1],"\n")
+      cat("Model span:",span[span.index+1],"\n")
     if(x$transform=="Automatic selection"){
       cat("Transformation:",unlist(x$transform),":",unlist(x$autotransform),"\n")
     }else{
@@ -54,7 +54,7 @@ summaryworkhorse <- function(x,fullSummary=FALSE,spectra.detail=FALSE,almostout=
     cat("\n\tOutlier Detection\n\n")
     if(x$ifout=="Outlier detection performed"){
       if(exists("outlierspan"))
-        cat("Outlierspan:",span[span.index+1],"\n")
+        cat("Outlier span:",span[span.index+1],"\n")
       cat("Critical |t| for outliers:\t\n")
       print(unlist(x$crit))
       cat("Total Number of Outliers:",unlist(x$nout),"\n")
