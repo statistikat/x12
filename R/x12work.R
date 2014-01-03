@@ -31,7 +31,6 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
     x12path=NULL,x13path=NULL,use="x12",
     keep_x12out=TRUE,showWarnings=TRUE
 ){
-  
   ### Quick Fix: Rename the parameters to previous version:
   seats=FALSE 
   seatsparameter=NULL
@@ -488,9 +487,16 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
 #  }
   
 #  out <- list()
+  if(!is.null(span)){
+    start_series <- start(tso)
+    end_series <- end(tso)
+    if(!any(is.na(span[1:2])))
+      start_series <- as.numeric(span[1:2])
+    if(!any(is.na(span[3:4])))
+      end_series <- as.numeric(span[3:4])
   
-  
-  out <- readx12Out(file,freq_series=frequency(tso),start_series=start(tso),end_series=end(tso),tblnames=tblnames,Rtblnames=Rtblnames,transform=transform,slidingspans=slidingspans,history=history,x11regress=x11regress,outlier=outlier,showWarnings=showWarnings,keep_x12out=keep_x12out)
+  }
+  out <- readx12Out(file,freq_series=frequency(tso),start_series=start_series,end_series=end_series,tblnames=tblnames,Rtblnames=Rtblnames,transform=transform,slidingspans=slidingspans,history=history,x11regress=x11regress,outlier=outlier,showWarnings=showWarnings,keep_x12out=keep_x12out)
 #  Rtblnames <- c("Original series", "Final seasonal factors", "Final seasonally adjusted data", "Final trend cycle",
 #		    "Final irregular components","Combined adjustment factors","Final weights for irregular component",
 #			"Final replacements for SI ratios",
