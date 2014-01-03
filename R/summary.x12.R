@@ -23,10 +23,16 @@ summaryworkhorse <- function(x,fullSummary=FALSE,spectra.detail=FALSE,almostout=
 	if(length(x$span)>1){
 	span <- str_trim(unlist(strsplit(x$span,":")))
 	span.index <- which(span=="span")
-		cat("Span:",span[span.index+1],"\n")}
-	else{
+		cat("Span:",span[span.index+1],"\n")
+  }else{
 		cat("Span:",x$span,"\n")}	
-	
+  
+  span.index <- which(span=="modelspan")
+  if(length(span.index)>0)
+    modelspan <- span[span.index+1]
+  span.index <- which(span=="outlierspan")
+  if(length(span.index)>0)
+    outlierspan <- span[span.index+1]
 ### RegARIMA Option:
 	
 	if(x$x11regress=="no"){	
@@ -37,6 +43,8 @@ summaryworkhorse <- function(x,fullSummary=FALSE,spectra.detail=FALSE,almostout=
       cat("ARIMA Model:",unlist(x$arimamdl),"\n")#automdl erwaehnen
     }
     #zz <- data.frame("(row names)"= c("aaaaa", "b"), check.names=FALSE)
+    if(exists("modelspan"))
+      cat("Modelspan:",span[span.index+1],"\n")
     if(x$transform=="Automatic selection"){
       cat("Transformation:",unlist(x$transform),":",unlist(x$autotransform),"\n")
     }else{
@@ -45,6 +53,8 @@ summaryworkhorse <- function(x,fullSummary=FALSE,spectra.detail=FALSE,almostout=
     cat("Regression Model:",unlist(x$regmdl),"\n")
     cat("\n\tOutlier Detection\n\n")
     if(x$ifout=="Outlier detection performed"){
+      if(exists("outlierspan"))
+        cat("Outlierspan:",span[span.index+1],"\n")
       cat("Critical |t| for outliers:\t\n")
       print(unlist(x$crit))
       cat("Total Number of Outliers:",unlist(x$nout),"\n")
