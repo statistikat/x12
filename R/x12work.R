@@ -487,9 +487,9 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
 #  }
   
 #  out <- list()
+  start_series <- start(tso)
+  end_series <- end(tso)
   if(!is.null(span)){
-    start_series <- start(tso)
-    end_series <- end(tso)
     if(!any(is.na(span[1:2])))
       start_series <- as.numeric(span[1:2])
     if(!any(is.na(span[3:4])))
