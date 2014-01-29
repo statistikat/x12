@@ -1,7 +1,7 @@
 readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_series,end_series,
     seats=FALSE,transform,slidingspans,history,x11regress,outlier,showWarnings,keep_x12out){
-  cat("start_series: ")
-  print(start_series)
+#  cat("start_series: ")
+#  print(start_series)
   out<-list()
   Rtblnames <- c("Original series", "Final seasonal factors", "Final seasonally adjusted data", "Final trend cycle",
       "Final irregular components","Combined adjustment factors","Final weights for irregular component",
