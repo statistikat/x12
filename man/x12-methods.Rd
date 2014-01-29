@@ -45,7 +45,14 @@ x12(object,x12Parameter=new("x12Parameter"),x12BaseInfo=new("x12BaseInfo"),...)
   \url{http://www.census.gov/srd/www/x12a/}
 }
 
-\note{cleanHistory is deprecated and cleanArchive should be used instead.}
+\note{
+Parallelization is implemented for x12Batch objects with help of the package 'parallel'.
+To process in parallel set the option 'x12.parallel' to an integer value representing the number of cores to use ( options(x12.parallel=2) ).
+Afterwards all calls to the function 'x12' on an object of class 'x12Batch' will be parallelized (For reseting use options(x12.parallel=NULL) ).
+
+cleanHistory is deprecated and cleanArchive should be used instead.
+
+}
 \author{
 Alexander Kowarik, Angelika Meraner}
 

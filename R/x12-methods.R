@@ -97,6 +97,7 @@ setMethod(
         object@x12BaseInfo@x12path <- getd("x12path")
       else
         stop("Please enter an x12path")
+      ## Parallelization implemented after the pattern used in the survey package by Thomas Lumley.
       if (is.null(getOption("x12.parallel")) | !require("parallel", quietly=TRUE)){
         tmpList <- lapply(object@x12List,function(x)x12(x,x12BaseInfo=object@x12BaseInfo,forceRun=forceRun))
       }else{
