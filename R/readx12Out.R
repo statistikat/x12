@@ -2,6 +2,7 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
     seats=FALSE,transform,slidingspans,history,x11regress,outlier,showWarnings,keep_x12out){
 #  cat("start_series: ")
 #  print(start_series)
+  dirgra <- paste("gra_",gsub("\\.","_",basename(file)),sep="")
   out<-list()
   Rtblnames <- c("Original series", "Final seasonal factors", "Final seasonally adjusted data", "Final trend cycle",
       "Final irregular components","Combined adjustment factors","Final weights for irregular component",
@@ -14,7 +15,7 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
     tblnames <- c("a1", "d10", "d11", "d12", "d13","d16","c17","d9","e2","d8","b1","td", tblnames)
   if(!(file=="Example_for_X1")){
     sp_file <- strsplit(file,"/")[[1]]
-    filename <- paste(paste(sp_file[-length(sp_file)],collapse="/"),"/gra/",sp_file[length(sp_file)],sep="")
+    filename <- paste(paste(sp_file[-length(sp_file)],collapse="/"),"/",dirgra,"/",sp_file[length(sp_file)],sep="")
     if(substring(filename,1,1)=="/")
       filename <- substring(filename,2)
   }else
@@ -49,7 +50,7 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
       cat(errorfile[i],"\n")	
     }
     if(!keep_x12out)
-      unlink(paste(dirname(file),"/gra",sep=""),recursive=TRUE)
+      unlink(paste(dirname(file),"/",dirgra,sep=""),recursive=TRUE)
     
     stop("Error! No proper run of x12! Check your parameter settings.")	
   }
@@ -69,12 +70,12 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
         cat(errorfile[i],"\n")	
       }
       if(!keep_x12out)
-        unlink(paste(dirname(file),"/gra",sep=""),recursive=TRUE)
+        unlink(paste(dirname(file),"/",dirgra,sep=""),recursive=TRUE)
       
       stop("An error occured when running x12! Program halted!","\n") 	
     }else{
       if(!keep_x12out)
-        unlink(paste(dirname(file),"/gra",sep=""),recursive=TRUE)
+        unlink(paste(dirname(file),"/",dirgra,sep=""),recursive=TRUE)
       
       stop("An error occured when running x12! Program halted!","\n") 	
     }
