@@ -1,3 +1,8 @@
+--1.4.0
+Bug concerning the span was fixed
+First version of parallelization for x12 on x12Batch objects introduced
+--1.3.0
+Labeling of plot functions was improved
 ---1.2.0
 x12work changed to not use sh or bat files (Suggestions by Peter Ellis)
 readSpc should be fixed according to the new names in x12Parameter
