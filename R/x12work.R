@@ -121,7 +121,9 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
 #ERROR:  Argument name "type" not found 
   header[length(header)+1] <- "DECIMALS=5"
   header[length(header)+1] <- paste("file = \"",file,".dat\"",sep="")
-  write(as.vector(tso),file=paste(file,".dat",sep=""),ncolumns =1)
+  tsoout <- as.character(round(as.vector(tso),5))
+  tsoout[is.na(tsoout)] <- "."
+  write(tsoout,file=paste(file,".dat",sep=""),ncolumns =1)
   #header[length(header)+1] <- "data=("
   #datarows<-as.vector(tso)
   #datarows[length(datarows)+1] <- ")"
