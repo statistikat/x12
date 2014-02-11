@@ -70,7 +70,7 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
   x11regress <- x11regression
   basename(file)
   
-  ext <- c("out","err","spc","otl","dat")
+  ext <- c("out","err","spc","otl","dat","a1","b1","d10","d11","d12","ftr","log")
   for(e in ext){
     f <- paste(basename(file),".",e,sep="")
     if(file.exists(f))
@@ -122,7 +122,7 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
   header[length(header)+1] <- "DECIMALS=5"
   header[length(header)+1] <- paste("file = \"",file,".dat\"",sep="")
   tsoout <- as.character(round(as.vector(tso),5))
-  tsoout[is.na(tsoout)] <- "."
+  tsoout[is.na(tsoout)] <- "-99999"
   write(tsoout,file=paste(file,".dat",sep=""),ncolumns =1)
   #header[length(header)+1] <- "data=("
   #datarows<-as.vector(tso)
@@ -533,7 +533,7 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
 #  out$Rtblnames <- Rtblnames
 #  class(out) <- "x12"
   
-  ext <- c("out","err","spc","otl")
+  ext <- c("out","err","spc","otl","dat","a1","b1","d10","d11","d12","ftr","log")
   if(!keep_x12out){
     for(e in ext){
       f <- paste(basename(file),".",e,sep="")

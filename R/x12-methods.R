@@ -14,7 +14,14 @@ setMethod(
        for(p in Par){
          pp <- c(pp,(paste(p,"=x12BaseInfo@",p,sep="")))
        }
-      pp <- paste("out <- x12work(tso=object,",paste(pp,collapse=","),",tblnames=\"otl\",Rtblnames=\"regressor\")",sep="")
+       if(!is.null(getOption("x12.delete"))){
+         if(getOption("x12.delete"))
+           keep_x12out <- paste("keep_x12out=FALSE")
+         else
+           keep_x12out <- paste("keep_x12out=TRUE")
+       }else
+         keep_x12out <- paste("keep_x12out=TRUE")
+      pp <- paste("out <- x12work(tso=object,",paste(pp,collapse=","),",tblnames=\"otl\",Rtblnames=\"regressor\",",keep_x12out,")",sep="")
       eval(parse(text=pp))
       classout <- new("x12Output")
       Par <- slotNames(classout)
@@ -63,7 +70,14 @@ setMethod(
         
         if(!is.null(object@tsName))
           pp <- c(pp, paste("file=\"",object@tsName,"\"",sep=""))
-        pp <- paste("out <- x12work(tso=object@ts,",paste(pp,collapse=","),",tblnames=\"otl\",Rtblnames=\"regressor\")",sep="")
+        if(!is.null(getOption("x12.delete"))){
+          if(getOption("x12.delete"))
+            keep_x12out <- paste("keep_x12out=FALSE")
+          else
+            keep_x12out <- paste("keep_x12out=TRUE")
+        }else
+          keep_x12out <- paste("keep_x12out=TRUE")
+        pp <- paste("out <- x12work(tso=object@ts,",paste(pp,collapse=","),",tblnames=\"otl\",Rtblnames=\"regressor\",",keep_x12out,")",sep="")
         eval(parse(text=pp))
         classout <- new("x12Output")
         Par <- slotNames(classout)
