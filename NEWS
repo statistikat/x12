@@ -1,3 +1,5 @@
+--1.5.0
+NA treatment was changed, the dat files will contain -99999 for missing values now (default value of X-12-ARIMA)
 --1.4.0
 Bug concerning the span was fixed
 First version of parallelization for x12 on x12Batch objects introduced
