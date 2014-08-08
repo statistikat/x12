@@ -113,9 +113,9 @@ setMethod(
         stop("Please enter an x12path")
       ## Parallelization implemented after the pattern used in the survey package by Thomas Lumley.
       if (is.null(getOption("x12.parallel")) | !require("parallel", quietly=TRUE)){
-        tmpList <- lapply(object@x12List,function(x)x12(x,x12BaseInfo=object@x12BaseInfo,forceRun=forceRun))
+        tmpList <- lapply(object@x12List,function(x)try(x12(x,x12BaseInfo=object@x12BaseInfo,forceRun=forceRun)))
       }else{
-        tmpList <- mclapply(object@x12List,function(x)x12(x,x12BaseInfo=object@x12BaseInfo,forceRun=forceRun),mc.cores=getOption("x12.parallel"))
+        tmpList <- mclapply(object@x12List,function(x)try(x12(x,x12BaseInfo=object@x12BaseInfo,forceRun=forceRun)),mc.cores=getOption("x12.parallel"))
       }
       for(i in 1:length(tmpList))
         object@x12List[[i]] <- tmpList[[i]] 
