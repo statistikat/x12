@@ -1,6 +1,6 @@
 Package: x12               
-Version: 1.5.1 
-Date: 2014-08-08 
+Version: 1.6.0 
+Date: 2014-11-19 
 Title: x12 - wrapper function and structure for batch processing               
 Author: Alexander Kowarik <alexander.kowarik@statistik.gv.at>, Angelika Meraner               
 Maintainer: Alexander Kowarik <alexander.kowarik@statistik.gv.at>               

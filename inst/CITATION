@@ -1,0 +1,22 @@
+citHeader("To cite x12 in publications use:")
+
+citEntry(entry = "Article",
+  title        = "Seasonal Adjustment with the {R} Packages {x12} and {x12GUI}",
+  author       = personList(as.person("Alexander Kowarik"),
+                   as.person("Angelika Meraner"),
+                   as.person("Matthias Templ"),
+                   as.person("Daniel Schopfhauser")),
+  journal      = "Journal of Statistical Software",
+  year         = "2014",
+  volume       = "62",
+  number       = "2",
+  pages        = "1--21",
+  url          = "http://www.jstatsoft.org/v62/i02/",
+
+  textVersion  =
+  paste("Alexander Kowarik, Angelika Meraner, Matthias Templ, Daniel Schopfhauser (2014).",
+        "Seasonal Adjustment with the R Packages x12 and x12GUI.",
+        "Journal of Statistical Software, 62(2), 1-21.",
+        "URL http://www.jstatsoft.org/v62/i02/.")
+)
+

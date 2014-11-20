@@ -105,4 +105,9 @@ b <- new("x12Batch",list(s1,s2))
 b <- x12(b)
 }
 }
+\references{Alexander Kowarik, Angelika Meraner, Matthias Templ, Daniel
+  Schopfhauser (2014). Seasonal Adjustment with the R Packages x12 and
+  x12GUI. Journal of Statistical Software, 62(2), 1-21. URL
+  http://www.jstatsoft.org/v62/i02/.
+}
 \keyword{classes}

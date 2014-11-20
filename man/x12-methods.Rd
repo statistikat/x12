@@ -112,5 +112,10 @@ xb <- prev(xb,index=1,n=1)
 summary(xb,oldOutput=10)
 }
 }
+\references{Alexander Kowarik, Angelika Meraner, Matthias Templ, Daniel
+  Schopfhauser (2014). Seasonal Adjustment with the R Packages x12 and
+  x12GUI. Journal of Statistical Software, 62(2), 1-21. URL
+  http://www.jstatsoft.org/v62/i02/.
+}
+
 \keyword{methods}
-\keyword{ ~~ other possible keyword(s) ~~ }
