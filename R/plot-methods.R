@@ -620,7 +620,7 @@ setMethod(f='plot',
            ask=par("ask")
            par(ask=TRUE)
       for(i in 1:n){
-        mainB <- paste(xb@x12List[[i]]@tsName,main,sep="-")
+        mainB <- paste(x@x12List[[i]]@tsName,main,sep="-")
         plot(x@x12List[[i]]@x12Output,original=original,sa=sa,trend=trend,
           log_transform=log_transform,
           ylab=ylab,xlab=xlab,
