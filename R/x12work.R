@@ -461,10 +461,10 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
     file_1 <- gsub("/","\\\\",file)
     if((!is.null(x12path)) && use=="x12"){
       x12path_1 <- gsub("/","\\\\",x12path)
-      command <- paste(x12path_1," ",file_1," -g ",dirgra,sep="")
+      command <- paste("\"",x12path_1,"\" ",file_1," -g ",dirgra,sep="")
     }else if((!is.null(x13path)) && use!="x12"){
       x13path_1 <- gsub("/","\\\\",x13path)
-      command <- paste(x13path_1," ",file_1," -g ",dirgra,sep="")
+      command <- paste("\"","x13path_1","\" ",file_1," -g ",dirgra,sep="")
     }else 
       stop("Please define the path to the X12 binaries!")
   }else{
