@@ -12,7 +12,7 @@ Description: A wrapper function and GUI for the X12 binaries
 License: GPL (>= 2)                  
 LazyData: TRUE                  
 SystemRequirements: X-12-ARIMA                  
-URL: https://github.com/alexkowa/x12                  
+URL: https://github.com/statistikat/x12                  
 Collate:                  
     'class.R'                  
     'crossVal-methods.R'                  
