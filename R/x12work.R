@@ -166,7 +166,7 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
     if(!is.null(regvariables))
       addcommands[length(addcommands)+1] <- paste("variables=(",paste(regvariables,collapse=" "),")",sep="")
     if(!is.null(aictest))
-      addcommands[length(addcommands)+1] <- paste("aictest=(",aictest,") savelog= aictest",sep="")
+      addcommands[length(addcommands)+1] <- paste("aictest=(",paste(aictest,collapse=" "),") savelog= aictest",sep="")
     if(!is.null(reguser)){
       forbidden.regression.user <- c("x11regress:",
           "samode:","finmode:","seasonalma:","trendma:","sfmsr:",
