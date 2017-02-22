@@ -15,11 +15,16 @@ existd <- function(x, mode="any") {
   exists(x, envir=x12env, mode=mode, inherits=FALSE) # add () to sdcGUIenv
 }
 x12path <- function(path=NULL){
+  if(is.null(path)){
+    x13p <- x13binary::x13path()
+    files <- list.files(x13p)
+    path <- file.path(x13p,files[head(grep("x13as",files),1)])
+  }
   pathWork("x12path",path)  
 }
-x13path <- function(path=NULL){
-  pathWork("x13path",path)
-}
+#x13path <- function(path=NULL){
+#  pathWork("x13path",path)
+#}
 
 pathWork <- function(name,path){
   if(is.null(path)){

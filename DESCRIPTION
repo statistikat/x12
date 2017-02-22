@@ -1,17 +1,16 @@
 Package: x12                  
-Version: 1.6.4
-Date: 2017-02-13
+Version: 1.6.5
+Date: 2017-02-21
 Title: x12 - wrapper function and structure for batch processing                  
 Author: Alexander Kowarik <alexander.kowarik@statistik.gv.at>, Angelika Meraner                  
 Maintainer: Alexander Kowarik <alexander.kowarik@statistik.gv.at>                  
 Depends:                  
-    R (>= 2.14.0),stats,utils,grDevices                  
+    R (>= 2.14.0),stats,utils,grDevices,x13binary              
 Imports:stringr,methods          
 Suggests: parallel                  
 Description: A wrapper function and GUI for the X12 binaries                  
 License: GPL (>= 2)                  
 LazyData: TRUE                  
-SystemRequirements: X-12-ARIMA                  
 URL: https://github.com/statistikat/x12                  
 Collate:                  
     'class.R'                  

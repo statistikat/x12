@@ -1,6 +1,6 @@
 \name{x12path}
 \alias{x12path}
-\alias{x13path}
+%\alias{x13path}
 \alias{putd}
 \alias{x12env}
 \alias{rmd}
@@ -13,7 +13,7 @@
 \usage{
 x12env
 x12path(path=NULL)
-x13path(path=NULL)
+%x13path(path=NULL)
 putd(x,value)
 getd(x, mode="any")
 rmd(x)
@@ -28,6 +28,7 @@ existd(x, mode="any")
 \author{Alexander Kowarik}
 \examples{
   \dontrun{
+  x12path()
   x12path("d:/x12/x12a.exe")
   x12path()
   getd("x12path")
