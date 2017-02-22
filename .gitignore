@@ -3,3 +3,4 @@
 .recently-used.xbel
 # Example code in package build process
 *-Ex.R
+.project
