@@ -9,13 +9,13 @@
 Baseinfo for use with the \code{\link{x12}} function and classes.
 }
 \section{Objects from the Class}{
-Objects can be created by calls of the form \code{new("x12BaseInfo", x12path, x13path, use, showWarnings)}.
+Objects can be created by calls of the form \code{new("x12BaseInfo", x12path, use, showWarnings)}.
 %%  ~~ describe objects here ~~ 
 }
 \section{Slots}{
   \describe{
     \item{\code{x12path}:}{Object of class \code{"characterOrNULL"} ~~ }
-    \item{\code{x13path}:}{Object of class \code{"characterOrNULL"} ~~ }
+%    \item{\code{x13path}:}{Object of class \code{"characterOrNULL"} ~~ }
     \item{\code{use}:}{Object of class \code{"character"} ~~ }
     \item{\code{showWarnings}:}{Object of class \code{"logical"} ~~ }
   }
