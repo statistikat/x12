@@ -42,7 +42,7 @@ x12(object,x12Parameter=new("x12Parameter"),x12BaseInfo=new("x12BaseInfo"),...)
 }
 
 \source{
-  \url{http://www.census.gov/srd/www/x12a/}
+  \url{https://www.census.gov/srd/www/x13as/}
 }
 
 \note{

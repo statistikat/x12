@@ -21,6 +21,7 @@ setMethod(
            keep_x12out <- paste("keep_x12out=TRUE")
        }else
          keep_x12out <- paste("keep_x12out=TRUE")
+      out <- NULL
       pp <- paste("out <- x12work(tso=object,",paste(pp,collapse=","),",tblnames=\"otl\",Rtblnames=\"regressor\",",keep_x12out,")",sep="")
       eval(parse(text=pp))
       classout <- new("x12Output")
@@ -77,6 +78,7 @@ setMethod(
             keep_x12out <- paste("keep_x12out=TRUE")
         }else
           keep_x12out <- paste("keep_x12out=TRUE")
+        out <- NULL
         pp <- paste("out <- x12work(tso=object@ts,",paste(pp,collapse=","),",tblnames=\"otl\",Rtblnames=\"regressor\",",keep_x12out,")",sep="")
         eval(parse(text=pp))
         classout <- new("x12Output")

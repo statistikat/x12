@@ -1,6 +1,7 @@
-import(stringr,methods,x13binary)
+import(stringr,methods,x13binary,stats,utils)
 ##S4 part
-importFrom("graphics", plot)
+import(graphics)
+importFrom("parallel",mclapply)
 #S3 part
 export("x12work","plot.x12work","summary.x12work","readSpc",
 "x12env","putd","rmd","existd","getd","x12path")
