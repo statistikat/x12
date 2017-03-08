@@ -46,7 +46,7 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
   if(!file.exists(paste(filename,".","udg",sep=""))){
     
     errorfile <- readLines(con=paste(file,".","err",sep=""),n=-1)
-    for(i in 1:length(errorfile)){
+    for(i in seq_along(errorfile)){
       cat(errorfile[i],"\n")	
     }
     if(!keep_x12out)
@@ -83,7 +83,7 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
   }
   
   ############	
-  for(i in 1:length(tblnames)){
+  for(i in seq_along(tblnames)){
     if(file.exists(paste(filename,".",tblnames[i],sep="")))
       out[[tblnames[i]]] <- ts(read.table(paste(filename,".",tblnames[i],sep=""),header=FALSE,skip=2,sep="	",na.strings="-999")[,2],frequency=freq_series,start=start_series)
   }
@@ -101,7 +101,7 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
       sptblnames <- c(sptblnames,i)	
   }
   if(!seats){
-    for(i in 1:length(sptblnames)){
+    for(i in seq_along(sptblnames)){
       out[[sptblnames[i]]] <- read.table(paste(filename,".",sptblnames[i],sep=""),header=FALSE,skip=2,sep="	")[,2:3]
       names(out[[sptblnames[i]]]) <- c("frequency","spectrum")
     }
