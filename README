@@ -6,8 +6,8 @@ By default (since version 1.7.0) the x13binary R package is used to provide the 
 
 But a local/alternative version could also be used which can be downloaded from https://www.census.gov/srd/www/x13as/
 for Windows, Linux and as Source Code.
-After the installation the x12a.exe or the x12a executable should be on your system. The path to the executable is
-important it is set with the function x12path, e.g., x12path("d:/X12InstallationPath/x12a.exe") or x12path("/usr/bin/x12a").
+After the installation the x13as.exe or the x13as executable should be on your system. The path to the executable is
+important it is set with the function x12path, e.g., x12path("d:/X12InstallationPath/x13as.exe") or x12path("/usr/bin/x13a").
 
 X-13ARIMA-SEATS (http://www.census.gov/srd/www/x13as/) is the current version of the seasonal adjustment program of the
 US Census Bureau, it can also be used in connection with the R package x12, but at the moment the SEATS Spec is not
