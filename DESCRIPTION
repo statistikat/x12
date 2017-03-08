@@ -1,5 +1,5 @@
 Package: x12                  
-Version: 1.7.2
+Version: 1.7.3
 Date: 2017-03-08
 Title: Interface to X12-ARIMA/X13-ARIMA-SEATS and Structure for Batch Processing of Seasonal Adjustment                  
 Author: Alexander Kowarik <alexander.kowarik@statistik.gv.at>, Angelika Meraner                  
