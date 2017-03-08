@@ -35,7 +35,7 @@ afterwards the output is read into R.
 	x11.excludefcst=TRUE,x11.final="user",
 	x11regression=FALSE,
 	tblnames=NULL,Rtblnames=NULL,
-	x12path=NULL,x13path=NULL,use="x12",keep_x12out=TRUE,showWarnings=TRUE)
+	x12path=NULL,use="x12",keep_x12out=TRUE,showWarnings=TRUE)
 %		seats=FALSE, seatsparameter=NULL,
 		
 }
@@ -149,7 +149,7 @@ afterwards the output is read into R.
   \item{tblnames}{character vector of additional tables to be read into R.}
   \item{Rtblnames}{character vector naming the additional tables.}
   \item{x12path}{path to the x12 binaries, for example \code{d:\\x12a\\x12a.exe}.}
-  \item{x13path}{path to the x13 binaries, for example \code{d:\\x13\\x13.exe}.}
+%  \item{x13path}{path to the x13 binaries, for example \code{d:\\x13\\x13.exe}.}
   \item{use}{\code{"x12"} or \code{"x13"}, at the moment only \code{"x12"} is tested properly.}
 %  \item{seats}{\code{TRUE}/\code{FALSE} for activating SEATS, at the moment SEATS is not properly implemented.}
 %  \item{seatsparameter}{string defining the seats parameter.}
@@ -211,7 +211,7 @@ x12out <- x12work(AirPassengers,x12path=".../x12a.exe",transform.function="auto"
 summary(x12out)}	
 }
 \source{
-  \url{http://www.census.gov/srd/www/x12a/}
+  \url{https://www.census.gov/srd/www/x13as/}
 }
 \note{
  Only working with available x12 binaries.

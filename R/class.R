@@ -194,18 +194,18 @@ setClass(
     Class="x12BaseInfo",
     representation=representation(
         x12path = "characterOrNULL",
-        x13path = "characterOrNULL",
+        #x13path = "characterOrNULL",
         use = "character",
         showWarnings = "logical" 
     ),prototype=
         prototype(
             x12path = NULL,
-            x13path = NULL,
+            #x13path = NULL,
             use = "x12",
             showWarnings = FALSE
         ),
     validity=function(object) {
-      (!is.null(object@x12path)||!is.null(object@x13path))&&object@use%in%c("x12","x13")
+      (!is.null(object@x12path))&&object@use%in%c("x12")
     }
 )
 setClass(Class="diagnostics",contains="list")
@@ -335,45 +335,39 @@ setMethod(
 setMethod(
     f='initialize',
     signature=signature(.Object = "x12BaseInfo"),
-    definition=function(.Object,x12path=NULL,x13path=NULL,use=NULL,showWarnings=FALSE) {
-      if(is.null(x12path)&&is.null(x13path)&&!existd("x12path")&&!existd("x13path"))
-        stop("Please use the functions x12path() or x13path() to define the paths to the binaries.")
+    definition=function(.Object,x12path=NULL,
+        #x13path=NULL,
+        use=NULL,showWarnings=FALSE) {
+      if(is.null(x12path)&&!existd("x12path"))
+        stop("Please use the function x12path() to define the path to the binaries.")
       if(is.null(x12path)&&existd("x12path")){
         if(file.exists(getd("x12path")))
           .Object@x12path <- getd("x12path")
         else
           stop("file specified in global variable x12path does not exist!\n")
       }
-      if(is.null(x13path)&&existd("x13path")){
-        if(file.exists(getd("x13path")))
-          .Object@x13path <- getd("x13path")
-        else
-          stop("file specified in global variable x13path does not exist!\n")
-      }
+#      if(is.null(x13path)&&existd("x13path")){
+#        if(file.exists(getd("x13path")))
+#          .Object@x13path <- getd("x13path")
+#        else
+#          stop("file specified in global variable x13path does not exist!\n")
+#      }
       if(!is.null(x12path)){
         if(file.exists(x12path)||x12path=="x12adummy")
           .Object@x12path <- x12path
         else 
           stop("file specified in argument x12path does not exist!\n")
       }
-      if(!is.null(x13path)){
-        if(file.exists(x13path))
-          .Object@x13path <- x13path
-        else
-          stop("file specified in argument x13path does not exist!\n")
+#      if(!is.null(x13path)){
+#        if(file.exists(x13path))
+#          .Object@x13path <- x13path
+#        else
+#          stop("file specified in argument x13path does not exist!\n")
+#      }
+      if(is.null(.Object@x12path)){
+        stop("Please use the function x12path() to define the paths to the binaries.")
       }
-      if(is.null(.Object@x12path)&&is.null(.Object@x13path)){
-        stop("Please use the functions x12path() or x13path() to define the paths to the binaries.")
-      }else if(!is.null(.Object@x12path)&&!is.null(.Object@x13path)){
-        warning("x12path and x13path defined, x13 will be used!")
-      }else if(!is.null(.Object@x13path)){
-        use <- "x12"
-        .Object@x12path <- .Object@x13path
-        .Object@x13path <- NULL
-      }else if(!is.null(.Object@x12path)){
-        use <- "x12"
-      }
-      .Object@use <- use
+      .Object@use <- "x12"
       .Object@showWarnings <- showWarnings
       return(.Object)
     }

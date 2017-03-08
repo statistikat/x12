@@ -1,9 +1,10 @@
-import(stringr,methods)
+import(stringr,methods,x13binary,stats,utils)
 ##S4 part
-importFrom("graphics", plot)
+import(graphics)
+importFrom("parallel",mclapply)
 #S3 part
 export("x12work","plot.x12work","summary.x12work","readSpc",
-"x12env","putd","rmd","existd","getd","x12path","x13path")
+"x12env","putd","rmd","existd","getd","x12path")
 S3method(plot, x12work)
 S3method(summary, x12work)
 ## All methods for imported generics:
