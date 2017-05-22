@@ -2,6 +2,16 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
     seats=FALSE,transform,slidingspans,history,x11regress,outlier,showWarnings,keep_x12out){
 #  cat("start_series: ")
 #  print(start_series)
+  readAndCatError <- function(file,noWarnings=FALSE){
+    errorfile <- readLines(con=paste(file,"_","err.html",sep=""),n=-1)
+    errorfile <- errorfile[(which(errorfile=="<body>")+1):(which(errorfile=="</body>")-1)]
+    if(noWarnings){
+      errorfile <- errorfile[grep("ERROR:",errorfile):length(errorfile)]
+    }
+    for(i in seq_along(errorfile)){
+      cat(errorfile[i],"\n")	
+    }
+  }
   dirgra <- paste("gra_",gsub("\\.","_",basename(file)),sep="")
   out<-list()
   Rtblnames <- c("Original series", "Final seasonal factors", "Final seasonally adjusted data", "Final trend cycle",
@@ -44,11 +54,7 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
 #		}
   
   if(!file.exists(paste(filename,".","udg",sep=""))){
-    
-    errorfile <- readLines(con=paste(file,".","err",sep=""),n=-1)
-    for(i in seq_along(errorfile)){
-      cat(errorfile[i],"\n")	
-    }
+    readAndCatError(file)
     if(!keep_x12out)
       unlink(paste(dirname(file),"/",dirgra,sep=""),recursive=TRUE)
     
@@ -57,18 +63,12 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
   udg <- readLines(con=paste(filename,".","udg",sep=""),n=-1)
   
   
-  if(showWarnings && file.exists(paste(file,".","err",sep=""))){
-    errorfile <- readLines(con=paste(file,".","err",sep=""),n=-1)
-    for(i in min(which(errorfile=="")):length(errorfile)){
-      cat(errorfile[i],"\n")	
-    }
+  if(showWarnings && file.exists(paste(file,"_","err.html",sep=""))){
+    readAndCatError(file)
   }
   if(any(any(grepl("errorstop: yes",udg)),length(udg)==0)){
     if(!showWarnings){
-      errorfile <- readLines(con=paste(file,".","err",sep=""),n=-1)
-      for(i in which(grepl("ERROR:",errorfile)):length(errorfile)){
-        cat(errorfile[i],"\n")	
-      }
+      readAndCatError(file,noWarnings=TRUE)
       if(!keep_x12out)
         unlink(paste(dirname(file),"/",dirgra,sep=""),recursive=TRUE)
       
