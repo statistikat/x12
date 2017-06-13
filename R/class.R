@@ -11,8 +11,8 @@ setClassUnion("listOrNULLOrcharacter", c("list", "character","NULL"))
 setClassUnion("numericOrNULLOrcharacter", c("numeric", "character","NULL"))
 ### Parameter Object class: x12Parameter ###
 setClass(
-    Class="x12Parameter", 
-    representation=representation(			
+    Class="x12Parameter",
+    representation=representation(
         #period="numeric",
         series.span="numericOrNULLOrcharacter",
         series.modelspan="numericOrNULLOrcharacter",
@@ -32,11 +32,11 @@ setClass(
         outlier.types="characterOrNULL",
         outlier.critical="listOrNULLOrnumeric",
         outlier.span="numericOrNULLOrcharacter",
-        outlier.method="characterOrNULL",	
+        outlier.method="characterOrNULL",
         identify="logical",
         identify.diff="numericOrNULL",
         identify.sdiff="numericOrNULL",
-        identify.maxlag="numericOrNULL",	
+        identify.maxlag="numericOrNULL",
         arima.model="numericOrNULL",
         arima.smodel="numericOrNULL",
         arima.ar="numericOrNULLOrcharacter",
@@ -79,7 +79,7 @@ setClass(
         x11.appendfcst="logical",
         x11.appendbcst="logical",
         x11.calendarsigma="characterOrNULL",
-        x11.excludefcst="logical", 
+        x11.excludefcst="logical",
         x11.final="character",
         x11regression="logical"
 #	seats="logical",
@@ -153,7 +153,7 @@ setClass(
         x11.excludefcst=FALSE,
         x11.final="user",
         x11regression=FALSE
-#			seats=FALSE, 
+#			seats=FALSE,
 #			seatsparameter=NULL
     ),
     validity=function(object) {
@@ -161,7 +161,7 @@ setClass(
     }
 )
 setClass(
-    Class="spectrum", 
+    Class="spectrum",
     representation=representation(
         frequency="numeric",
         spectrum="numeric"
@@ -196,7 +196,7 @@ setClass(
         x12path = "characterOrNULL",
         #x13path = "characterOrNULL",
         use = "character",
-        showWarnings = "logical" 
+        showWarnings = "logical"
     ),prototype=
         prototype(
             x12path = NULL,
@@ -211,8 +211,8 @@ setClass(
 setClass(Class="diagnostics",contains="list")
 ### Output Object class: x12Output ###
 setClass(
-    Class="x12Output", 
-    representation=representation(			
+    Class="x12Output",
+    representation=representation(
         a1="ts",
         d10="ts",
         d11="ts",
@@ -251,7 +251,7 @@ setClass(
         d8=new("ts"),
         b1=new("ts"),
 #		td=new("ts"),
-#		otl=new("ts"),		
+#		otl=new("ts"),
         sp0=new("spectrum"),
         sp1=new("spectrum"),
         sp2=new("spectrum"),
@@ -262,7 +262,7 @@ setClass(
 #        seats=new("logical"),
         file=new("character"),
         tblnames=new("character"),
-        Rtblnames=new("character")        
+        Rtblnames=new("character")
     ),
     validity=function(object) {
       return(TRUE)
@@ -270,14 +270,14 @@ setClass(
 )
 
 setClass(
-    Class="x12Single", 
-    representation=representation(			
+    Class="x12Single",
+    representation=representation(
         ts="ts",
         x12Parameter="x12Parameter",
         x12Output="x12Output",
         x12OldParameter="list",
         x12OldOutput="list",
-        
+
         tsName="characterOrNULL",
         firstRun="logical"
     ),
@@ -295,11 +295,11 @@ setClass(
     }
 )
 setClass(Class="x12List",contains="list",validity=function(object){
-      all(lapply(object,class),"x12Single")      
+      all(lapply(object,class),"x12Single")
     })
 setClass(
-    Class="x12Batch", 
-    representation=representation(			
+    Class="x12Batch",
+    representation=representation(
         x12List="x12List",
         x12BaseInfo="x12BaseInfo"
     ),
@@ -316,17 +316,18 @@ setMethod(
     f='initialize',
     signature=signature(.Object = "x12Batch"),
     definition=function(.Object,tsList,tsName=NULL,x12BaseInfo=new("x12BaseInfo")) {
+      if (is.null(tsName)) {
+        tsName <- paste0("Series_",1:length(tsList))
+      }
+      res <- list(); length(res) <- length(tsList)
       for(i in 1:length(tsList)){
-        if(class(tsList[[i]])=="x12Single")
-          .Object@x12List[[i]] <- tsList[[i]]
-        else{
-          if(!is.null(tsName))
-            .Object@x12List[[i]] <-new("x12Single",ts=tsList[[i]],tsName=tsName[i])
-          else{
-            .Object@x12List[[i]] <-new("x12Single",ts=tsList[[i]],tsName=paste("Series_",i,sep=""))
-          }
+        if(class(tsList[[i]])=="x12Single") {
+          res[[i]] <- tsList[[i]]
+        } else{
+          res[[i]] <- new("x12Single",ts=tsList[[i]],tsName=tsName[i])
         }
       }
+      .Object@x12List@.Data <- res
       .Object@x12BaseInfo <- x12BaseInfo
       return(.Object)
     }
@@ -355,7 +356,7 @@ setMethod(
       if(!is.null(x12path)){
         if(file.exists(x12path)||x12path=="x12adummy")
           .Object@x12path <- x12path
-        else 
+        else
           stop("file specified in argument x12path does not exist!\n")
       }
 #      if(!is.null(x13path)){
