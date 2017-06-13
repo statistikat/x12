@@ -241,37 +241,36 @@ setMethod(
 setMethod(
     f='setP',
     signature=signature(object = "x12Batch"),definition=function(object, listP,index=NULL) {
+      res <- object@x12List@.Data
       if(is.null(index)){##changing all
         cat("The parameters for all objects are changed.\n")
         for(i in 1:length(object@x12List)){
-          object@x12List[[i]] <- setP(object@x12List[[i]],listP=listP)
+          res[[i]] <- setP(res[[i]],listP=listP)
         }
       }else{
         if(is.numeric(index)){
           if(min(index)>0&max(index)<=length(object@x12List)){
             for(i in index){
-              object@x12List[[i]] <- setP(object@x12List[[i]],listP=listP)
+              res[[i]] <- setP(res[[i]],listP=listP)
             }
           }else
             stop("argument index is out of bounds!\n")
         }else if(is.character(index)){
           namTS <- vector()
           for(i in 1:length(object@x12List)){
-            namTS <- c(namTS,object@x12List[[i]]@tsName)
+            namTS <- c(namTS,res[[i]]@tsName)
           }
           if(all(index%in%namTS)){
             for(nam in index){
               ind <- which(nam==namTS)
-              object@x12List[[ind]] <- setP(object@x12List[[ind]],listP=listP)
+              res[[ind]] <- setP(res[[ind]],listP=listP)
             }
           }else
             stop("argument index contained names not found in the series names!\n")
-
         }else
           stop("argument index must be either integer or character!\n")
-
       }
-
+      object@x12List@.Data <- res
       return(object)
     })
 #Goto previous parameter setting and output
