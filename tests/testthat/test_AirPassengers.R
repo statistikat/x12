@@ -1,7 +1,8 @@
+setwd(tempdir())
 library(x12)
 test_that("AirPassenger ts x12 run",{
-s <- summary(xts)
 xts <- x12(AirPassengers)
+s <- summary(xts)
 expect_true(class(xts)=="x12Output")
 expect_true(s[12,2]=="0.26")
 })
