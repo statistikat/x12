@@ -535,10 +535,10 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
 #  out$Rtblnames <- Rtblnames
 #  class(out) <- "x12"
   
-  ext <- c("out","err","spc","otl","dat","a1","b1","d10","d11","d12","ftr","log")
+  ext <- c(".out",".err",".spc",".otl",".dat",".a1",".b1",".d10",".d11",".d12",".ftr",".log",".html","_err.html","_Profiler.txt","_log.html")
   if(!keep_x12out){
     for(e in ext){
-      f <- paste(basename(file),".",e,sep="")
+      f <- paste(basename(file),e,sep="")
       if(file.exists(f))
         file.remove(f)
     }
