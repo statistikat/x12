@@ -96,13 +96,13 @@ readSpcS <- function(file,filename=TRUE){
     start <- gsub1(series[startX],"start")
     start <- unlist(strsplit(start,"\\."))
     if(!period%in%c(4,12))
-      stop("Period argument wring?!")
+      stop("Period argument wrong?!")
   }else{
     start <- 1
   }
   start <- as.numeric(start)
-  dataX <-  whichgrep(series,"data")
-  fileX <-  whichgrep(series,"file")
+  dataX <-  whichgrep(substring(trimws(series),1,4),"data")
+  fileX <-  whichgrep(substring(trimws(series),1,4),"file")
   if(length(dataX)>0){
     dataXEnd <-  whichgrep(series,")")[1]
     dataXEnd <- dataXEnd[dataXEnd>=dataX][1]
