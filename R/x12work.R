@@ -11,6 +11,7 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
     automdl=FALSE,automdl.acceptdefault=FALSE,automdl.balanced=TRUE,
     automdl.maxorder=c(3,2),automdl.maxdiff=c(1,1),
     forecast_years=NULL,backcast_years=NULL,forecast_conf=.95,
+    forecast_save="ftr",
     estimate=FALSE,estimate.outofsample=TRUE,
     check=TRUE,check.maxlag=NULL,
     slidingspans=FALSE,
@@ -343,7 +344,7 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
 #Forecasts Backcasts
     if(!is.null(forecast_years) | !is.null(backcast_years)){
       addcommands[length(addcommands)+1] <- "forecast {"
-      addcommands[length(addcommands)+1] <- "save=ftr"
+      addcommands[length(addcommands)+1] <- paste0("save=",forecast_save)
       if(!is.null(forecast_years)){
         addcommands[length(addcommands)+1] <- paste("maxlead=",forecast_years*frequency(tso),sep="")
       }

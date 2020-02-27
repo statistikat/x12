@@ -69,6 +69,7 @@ Objects can be created by calls of the form \code{new("x12Parameter", ...)}.
     \item{\code{forecast_years}:}{Object of class \code{"numericOrNULL"} - number of years to forecast, default is 1 year.}
     \item{\code{backcast_years}:}{Object of class \code{"numericOrNULL"} - number of years to backcast, default is no backcasts.}
     \item{\code{forecast_conf}:}{Object of class \code{"numeric"} - probability for the confidence interval of forecasts.}
+    \item{\code{forecast_save}:}{Object of class \code{"character"} either "ftr"(in transformed scaling) or "fct"(in original scaling)}
     \item{\code{estimate}:}{Object of class \code{"logical"} - if \code{TRUE}, the term "estimate" will be added to the spc file.}
     \item{\code{estimate.outofsample}:}{Object of class \code{"logical"} - logical defining whether "out of sample" or "within sample" forecast errors
   should be used in calculating the average magnitude of forecast errors over the last three years.}

@@ -17,6 +17,7 @@ afterwards the output is read into R.
 	automdl=FALSE,automdl.acceptdefault=FALSE,automdl.balanced=TRUE,
 	automdl.maxorder=c(3,2),automdl.maxdiff=c(1,1),
 	forecast_years=NULL,backcast_years=NULL,forecast_conf=.95,
+	forecast_save="ftr",
 	estimate=FALSE,estimate.outofsample=TRUE,
 	check=TRUE,check.maxlag=NULL,
 	slidingspans=FALSE,
@@ -94,6 +95,7 @@ afterwards the output is read into R.
   \item{forecast_years}{number of years to forecast, default is 1 year.}
   \item{backcast_years}{number of years to backcast, default is no backcasts.}
   \item{forecast_conf}{probability for the confidence interval of forecasts}
+  \item{forecast_save}{character either "ftr"(in transformed scaling) or "fct"(in original scaling)}
   \item{estimate}{if \code{TRUE}, the term "estimate" will be added to the spc file.}
   \item{estimate.outofsample}{logical defining whether "out of sample" or "within sample" forecast errors
   should be used in calculating the average magnitude of forecast errors over the last three years.}

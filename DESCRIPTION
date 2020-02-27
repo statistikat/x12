@@ -1,19 +1,19 @@
 Package: x12                  
-Version: 1.9.2
-Date: 2017-03-01
+Version: 1.9.3
+Date: 2020-02-27
 Title: Interface to 'X12-ARIMA'/'X13-ARIMA-SEATS' and Structure for Batch Processing of Seasonal Adjustment                  
 Author: Alexander Kowarik <alexander.kowarik@statistik.gv.at>, Angelika Meraner                  
 Maintainer: Alexander Kowarik <alexander.kowarik@statistik.gv.at>                  
-Depends:                  
+Depends: 
     R (>= 2.14.0),stats,utils,grDevices,x13binary              
-Imports:stringr,methods          
+Imports: stringr,methods          
 Suggests: parallel, testthat
 Description: The 'X13-ARIMA-SEATS' <https://www.census.gov/srd/www/x13as/> methodology and software is a widely used software and developed by the US Census Bureau. It can be accessed from 'R' with this package and 'X13-ARIMA-SEATS' binaries are provided by the 'R' package 'x13binary'.
 License: GPL (>= 2)                  
 LazyData: TRUE
 ByteCompile: TRUE
 URL: https://github.com/statistikat/x12                  
-Collate:                  
+Collate: 
     'class.R'                  
     'crossVal-methods.R'                  
     'env_functions.R'                  
