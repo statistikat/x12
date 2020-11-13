@@ -281,7 +281,7 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
       }}
     
 #Extrawurst fuer Regression variables Teil 2:
-    if(length(regvar)!=0 &&regvar!="none"){  
+    if(length(regvar)!=0 && head(regvar,1)!="none"){
       reglist <- lapply(1:length(regvar),function(x)grep(paste(regvar[x],"$",sep=""),grep(regvar[x],udg,value=TRUE,fixed=TRUE),fixed=TRUE,value=TRUE))
       reglist <- lapply(reglist,function(x)strsplit(x,"$",fixed=TRUE))
       if(length(which(sapply(reglist,function(x)!length(x)>0)))!=0){
