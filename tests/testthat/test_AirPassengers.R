@@ -1,4 +1,3 @@
-setwd(tempdir())
 library(x12)
 test_that("AirPassenger ts x12 run",{
 xts <- x12(AirPassengers)
