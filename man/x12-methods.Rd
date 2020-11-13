@@ -70,12 +70,13 @@ Alexander Kowarik, Angelika Meraner}
 }
 
 \examples{
+\dontrun{
 xts <- x12(AirPassengers)
 summary(xts)
 xs <- x12(new("x12Single",ts=AirPassengers))
 summary(xs)
 
-\dontrun{
+
 xb<-x12(new("x12Batch",list(AirPassengers,AirPassengers,AirPassengers)))
 summary(xb)
 

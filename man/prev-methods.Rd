@@ -54,5 +54,4 @@ Ap=prev(AirPassengersX12)
 summary(AirPassengersX12,oldOutput=10)
 }
 \keyword{methods}
-\keyword{ ~~ other possible keyword(s) ~~ }
 \author{Alexander Kowarik}

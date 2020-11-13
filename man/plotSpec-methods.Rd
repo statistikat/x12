@@ -110,4 +110,3 @@ plotRsdAcf(s,col_acf="black",lwd_acf=1)
 }
 }
 \keyword{methods}
-\keyword{ ~~ other possible keyword(s) ~~ }
