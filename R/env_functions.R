@@ -28,7 +28,7 @@ x12path <- function(path=NULL){
 #}
 
 pathWork <- function(name,path){
-  if(is.null(path)){
+  if(is.null(path)||length(path)!=1){
     if(existd(name))
       return(getd(name))
     else
