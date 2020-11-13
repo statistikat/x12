@@ -11,7 +11,7 @@ citEntry(entry = "Article",
   volume       = "62",
   number       = "2",
   pages        = "1--21",
-  url          = "http://www.jstatsoft.org/v62/i02/",
+  url          = "https://www.jstatsoft.org/v62/i02/",
 
   textVersion  =
   paste("Alexander Kowarik, Angelika Meraner, Matthias Templ, Daniel Schopfhauser (2014).",
