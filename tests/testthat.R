@@ -1,4 +1,6 @@
 library(testthat)
 library(x12)
 options(x12.delete = TRUE)
-test_check("x12")
+if(x13binary::supportedPlatform()){
+  test_check("x12")
+}
