@@ -1,18 +1,24 @@
 language: r
 r:
-  - oldrel
   - release
   - devel
 cache: packages
 
-r_github_packages:
-  - r-lib/covr
+r_packages:
+  - kableExtra
+  - covr
+  - pkgdown
 
 after_success:
   - Rscript -e 'covr::coveralls()'
 
-  
+
 notifications:
   email:
     on_success: change
     on_failure: change
+
+deploy:
+  provider: script
+  script: Rscript -e 'pkgdown::deploy_site_github()'
+  skip_cleanup: true
