@@ -484,7 +484,12 @@ x12work <- function(tso,period=frequency(tso),file="Rout",
   #close(con1)
   if(!file.exists(dirgra))
     dir.create(dirgra) 
-  system(command) 
+  if(is.null(options("x12.message")$x12.message)){
+    system(command)  
+  }else{
+    system(command, ignore.stdout = TRUE, ignore.stderr = TRUE)
+  }
+  
 #  if(Sys.info()[1]=="Windows"){
 #    system("run.bat")
 #  }else{
