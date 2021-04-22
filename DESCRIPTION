@@ -1,6 +1,6 @@
 Package: x12                  
 Version: 1.9.4
-Date: 2021-03-18
+Date: 2021-04-22
 Title: Interface to 'X12-ARIMA'/'X13-ARIMA-SEATS' and Structure for Batch Processing of Seasonal Adjustment                  
 Author: Alexander Kowarik <alexander.kowarik@statistik.gv.at>, Angelika Meraner                  
 Maintainer: Alexander Kowarik <alexander.kowarik@statistik.gv.at>                  
@@ -12,21 +12,4 @@ Description: The 'X13-ARIMA-SEATS' <https://www.census.gov/srd/www/x13as/> metho
 License: GPL (>= 2)                  
 LazyData: TRUE
 ByteCompile: TRUE
-URL: https://github.com/statistikat/x12                  
-Collate: 
-    'class.R'                  
-    'crossVal-methods.R'                  
-    'env_functions.R'                  
-    'ggplot2Fn.R'                  
-    'parameter-methods.R'                  
-    'plot-methods.R'                  
-    'plotFunctions.R'                  
-    'readSpc.R'                  
-    'summary-methods.R'                  
-    'summary.output.x12.R'                  
-    'summary.x12.R'                  
-    'times.R'                  
-    'x12-methods.R'                  
-    'x12work.R'                  
-    'readx12Out.R'                  
-    'zzz.R'
+URL: https://github.com/statistikat/x12
