@@ -8,15 +8,15 @@ citEntry(entry = "Article",
                    as.person("Daniel Schopfhauser")),
   journal      = "Journal of Statistical Software",
   year         = "2014",
-  volume       = "62",
-  number       = "2",
+  volume       = "062",
+  issue       = "2",
   pages        = "1--21",
-  url          = "https://www.jstatsoft.org/v62/i02/",
+  doi          = "10.18637/jss.v062.i02",
 
   textVersion  =
   paste("Alexander Kowarik, Angelika Meraner, Matthias Templ, Daniel Schopfhauser (2014).",
         "Seasonal Adjustment with the R Packages x12 and x12GUI.",
         "Journal of Statistical Software, 62(2), 1-21.",
-        "URL https://www.jstatsoft.org/v62/i02/.")
+        "URL https://doi.org/10.18637/jss.v062.i02")
 )
 
