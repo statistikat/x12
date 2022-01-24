@@ -4,3 +4,5 @@
 .Rhistory
 .gitignore
 .git
+^codecov\.yml$
+^\.github$

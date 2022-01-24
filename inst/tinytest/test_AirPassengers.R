@@ -1,19 +1,19 @@
 library(x12)
-test_that("AirPassenger ts x12 run",{
+# AirPassenger ts x12 run"
 xts <- x12(AirPassengers)
 s <- summary(xts)
 expect_true(class(xts)=="x12Output")
 expect_true(s[12,2]=="0.26")
-})
 
-test_that("AirPassenger x12Single x12 run",{
+
+# AirPassenger x12Single x12 run"
 xs <- x12(new("x12Single",ts=AirPassengers))
 s <- summary(xs)
 expect_true(class(xs)=="x12Single")
 expect_true(s[12,2]=="0.26")
-})
 
-test_that("AirPassenger x12Batch x12 run",{
+
+# AirPassenger x12Batch x12 run"
   xb <- x12(new("x12Batch",list(AirPassengers,AirPassengers,AirPassengers)))
   xbs <- summary(xb)
   
@@ -52,4 +52,3 @@ test_that("AirPassenger x12Batch x12 run",{
   #summary with oldOutput (--- No valid previous runs. ---)
   summary(xb,oldOutput=10)
   
-})
