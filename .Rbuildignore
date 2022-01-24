@@ -6,3 +6,4 @@
 .git
 ^codecov\.yml$
 ^\.github$
+docs

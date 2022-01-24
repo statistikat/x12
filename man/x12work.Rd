@@ -213,7 +213,7 @@ x12out <- x12work(AirPassengers,x12path=".../x12a.exe",transform.function="auto"
 summary(x12out)}	
 }
 \source{
-  \url{https://www.census.gov/srd/www/x13as/}
+  \url{https://www.census.gov/data/software/x13as.html}
 }
 \note{
  Only working with available x12 binaries.
