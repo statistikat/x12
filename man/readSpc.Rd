@@ -33,7 +33,7 @@ Alexander Kowarik
   x12BatchObject1 <- readSpc(c("D:/ak_b.SPC","D:/aaa.spc"))
   setwd("M:/kowarik/Test/x12test")
   lf <- list.files()
-  lf <- lf[unlist(lapply(lf,function(x)substr(x,nchar(x)-2,nchar(x))))%in%c("spc","SPC")]
+  lf <- lf[unlist(lapply(lf,function(x)substr(x,nchar(x)-2,nchar(x)))) \%in\%c("spc","SPC")]
   lf <- lf[-c(grep("ind",lf))]
   allSPC <- readSpc(lf)
   a <- x12(allSPC)  
