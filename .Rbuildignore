@@ -7,3 +7,5 @@
 ^codecov\.yml$
 ^\.github$
 docs
+lastMiKTeXException
+.DS_Store

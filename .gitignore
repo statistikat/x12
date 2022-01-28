@@ -7,3 +7,4 @@
 .Rproj.user
 *.Rproj
 docs
+.DS_Store
