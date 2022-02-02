@@ -1,4 +1,5 @@
 library(x12)
+setwd(tempdir())
 # AirPassenger ts x12 run"
 xts <- x12(AirPassengers)
 s <- summary(xts)
