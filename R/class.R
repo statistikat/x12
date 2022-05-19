@@ -323,7 +323,7 @@ setMethod(
       }
       res <- list(); length(res) <- length(tsList)
       for(i in 1:length(tsList)){
-        if(class(tsList[[i]])=="x12Single") {
+        if(is(tsList[[i]],"x12Single")) {
           res[[i]] <- tsList[[i]]
         } else{
           res[[i]] <- new("x12Single",ts=tsList[[i]],tsName=tsName[i])

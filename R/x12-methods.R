@@ -27,12 +27,12 @@ setMethod(
       classout <- new("x12Output")
       Par <- slotNames(classout)
        for(p in Par){
-         if(class(slot(classout,p))=="spectrum"){
+         if(is(slot(classout,p),"spectrum")){
            if(p%in%names(out)){
              slot(classout,p)@frequency <- out[[p]]$frequency
              slot(classout,p)@spectrum <- out[[p]]$spectrum
            }
-         }else if(class(slot(classout,p))=="fbcast"){
+         }else if(is(slot(classout,p),"fbcast")){
            if(p%in%names(out)){
              slot(classout,p)@estimate <- out[[p]][["estimate"]]
              slot(classout,p)@lowerci <- out[[p]][["lowerci"]]
@@ -84,12 +84,12 @@ setMethod(
         classout <- new("x12Output")
         Par <- slotNames(classout)
         for(p in Par){
-          if(class(slot(classout,p))=="spectrum"){
+          if(is(slot(classout,p),"spectrum")){
             if(p%in%names(out)){
               slot(classout,p)@frequency <- out[[p]]$frequency
               slot(classout,p)@spectrum <- out[[p]]$spectrum
             }
-          }else if(class(slot(classout,p))=="fbcast"){
+          }else if(is(slot(classout,p),"fbcast")){
             if(p%in%names(out)){
               slot(classout,p)@estimate <- out[[p]][["estimate"]]
               slot(classout,p)@lowerci <- out[[p]][["lowerci"]]

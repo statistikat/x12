@@ -422,7 +422,7 @@ setMethod(
     signature=signature(object = "x12Parameter"),
     definition=function(object,file) {
       par <- get(load(file=file))
-      if("x12Parameter"!=class(par))
+      if(!is(par,"x12Parameter"))
         stop("no parameter settings found in the file!\n")
       return(par)
     }
@@ -432,7 +432,7 @@ setMethod(
     signature=signature(object = "x12Single"),
     definition=function(object,file) {
       par <- get(load(file=file))
-      if("x12Parameter"!=class(par))
+      if(!is(par,"x12Parameter"))
         stop("no parameter settings found in the file!\n")
       object@x12Parameter <- par
       return(object)
@@ -443,7 +443,7 @@ setMethod(
     signature=signature(object = "x12Batch"),
     definition=function(object,file) {
       parList <- get(load(file=file))
-      if(class(parList)=="x12Parameter"){
+      if(is(parList,"x12Parameter")){
         warning("All Parameters will be overwritten with one loaded parameter configuration")
         for(i in 1:length(object@x12List)){
           object@x12List[[i]]@x12Parameter <- parList
@@ -452,7 +452,7 @@ setMethod(
         if(length(parList)!=length(object@x12List))
           stop("loaded Parameter list does not fit to the x12Batch object \n")
         for(i in 1:length(parList)){
-          if(class(parList[[i]])!="x12Parameter")
+          if(!is(parList[[i]],"x12Parameter"))
             stop("The file does not contain a list of x12Parameter objects!")
           object@x12List[[i]]@x12Parameter <- parList[[i]]
         }

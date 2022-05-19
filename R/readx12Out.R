@@ -530,7 +530,7 @@ readx12Out <- function(file,tblnames=NULL,Rtblnames=NULL,freq_series,start_serie
             dg[[i]][[j]] <- num.possible	
           }else{	
             num.split <- strsplit(dg[[i]][[j]],"\\s+")
-            if(class(num.split)=="list"){
+            if(is(num.split,"list")){
               ex.num <- as.numeric(unlist(num.split))
               num.split <- as.list(num.split[[1]])
             }else{
