@@ -87,7 +87,7 @@ Cross Validation with function \code{crossVal} in package \pkg{x12}.
 }
 
 \value{
-\item{}{An S4 object of class \code{\link{crossValidation-class}}.}
+An S4 object of class \code{\link{crossValidation-class}}.
 }
 
 \keyword{methods}

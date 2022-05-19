@@ -35,9 +35,9 @@ x12(object,x12Parameter=new("x12Parameter"),x12BaseInfo=new("x12BaseInfo"),...)
 
 \section{Value}{
 \describe{
-\item{}{An S4 object of class \code{\link{x12Output-class}} if \code{object} is of class \code{ts}}
-\item{}{An S4 object of class \code{\link{x12Single-class}} if \code{object} is of class \code{x12Single-class}}
-\item{}{An S4 object of class \code{\link{x12Batch-class}} if \code{object} is of class \code{x12Batch-class}}
+\item{x12Output}{An S4 object of class \code{\link{x12Output-class}} if \code{object} is of class \code{ts}}
+\item{x12Single}{An S4 object of class \code{\link{x12Single-class}} if \code{object} is of class \code{x12Single-class}}
+\item{x12Batch}{An S4 object of class \code{\link{x12Batch-class}} if \code{object} is of class \code{x12Batch-class}}
 }
 }
 
