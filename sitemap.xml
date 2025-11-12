@@ -1,99 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/AirPassengersX12.html</loc>
-  </url>
-  <url>
-    <loc>/reference/AirPassengersX12Batch.html</loc>
-  </url>
-  <url>
-    <loc>/reference/crossVal-methods.html</loc>
-  </url>
-  <url>
-    <loc>/reference/crossValidation-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/diagnostics-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enfn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fbcast-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/getP-methods.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/loadP-methods.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot-methods.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plot.x12work.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plotRsdAcf-methods.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plotSeasFac-methods.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plotSpec-methods.html</loc>
-  </url>
-  <url>
-    <loc>/reference/prev-methods.html</loc>
-  </url>
-  <url>
-    <loc>/reference/readSpc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/spectrum-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/summary-methods.html</loc>
-  </url>
-  <url>
-    <loc>/reference/summary.x12work.html</loc>
-  </url>
-  <url>
-    <loc>/reference/times.html</loc>
-  </url>
-  <url>
-    <loc>/reference/x12-methods.html</loc>
-  </url>
-  <url>
-    <loc>/reference/x12BaseInfo-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/x12Batch-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/x12List-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/x12Output-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/x12Parameter-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/x12Single-class.html</loc>
-  </url>
-  <url>
-    <loc>/reference/x12work.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/AirPassengersX12.html</loc></url>
+<url><loc>/reference/AirPassengersX12Batch.html</loc></url>
+<url><loc>/reference/crossVal-methods.html</loc></url>
+<url><loc>/reference/crossValidation-class.html</loc></url>
+<url><loc>/reference/diagnostics-class.html</loc></url>
+<url><loc>/reference/enfn.html</loc></url>
+<url><loc>/reference/fbcast-class.html</loc></url>
+<url><loc>/reference/getP-methods.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/loadP-methods.html</loc></url>
+<url><loc>/reference/plot-methods.html</loc></url>
+<url><loc>/reference/plot.x12work.html</loc></url>
+<url><loc>/reference/plotRsdAcf-methods.html</loc></url>
+<url><loc>/reference/plotSeasFac-methods.html</loc></url>
+<url><loc>/reference/plotSpec-methods.html</loc></url>
+<url><loc>/reference/prev-methods.html</loc></url>
+<url><loc>/reference/readSpc.html</loc></url>
+<url><loc>/reference/spectrum-class.html</loc></url>
+<url><loc>/reference/summary-methods.html</loc></url>
+<url><loc>/reference/summary.x12work.html</loc></url>
+<url><loc>/reference/times.html</loc></url>
+<url><loc>/reference/x12-methods.html</loc></url>
+<url><loc>/reference/x12BaseInfo-class.html</loc></url>
+<url><loc>/reference/x12Batch-class.html</loc></url>
+<url><loc>/reference/x12List-class.html</loc></url>
+<url><loc>/reference/x12Output-class.html</loc></url>
+<url><loc>/reference/x12Parameter-class.html</loc></url>
+<url><loc>/reference/x12Single-class.html</loc></url>
+<url><loc>/reference/x12work.html</loc></url>
 </urlset>
+
