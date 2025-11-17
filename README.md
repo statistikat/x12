@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/statistikat/x12.svg?branch=master)
+[![R-CMD-check](https://github.com/statistikat/x12/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statistikat/x12/actions)
 [![Codecov test coverage](https://codecov.io/gh/statistikat/x12/branch/master/graph/badge.svg)](https://app.codecov.io/gh/statistikat/x12?branch=master)
 [![CRAN](http://www.r-pkg.org/badges/version/x12)](https://CRAN.R-project.org/package=x12)
 [![Downloads](http://cranlogs.r-pkg.org/badges/x12)](https://CRAN.R-project.org/package=x12)
